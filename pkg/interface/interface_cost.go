@@ -1,5 +1,7 @@
 package _interface
 
+// ref: https://syslog.ravelin.com/go-interfaces-but-at-what-cost-961e0f58a07b
+
 // Basic interface and implementation
 type getter interface {
 	get() int
