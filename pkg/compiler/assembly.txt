@@ -1,0 +1,34 @@
+# command-line-arguments
+main.add STEXT size=16 args=0x10 locals=0x0 funcid=0x0 align=0x0 leaf
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/compiler/sample.go:3)	TEXT	main.add(SB), LEAF|NOFRAME|ABIInternal, $0-16
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/compiler/sample.go:3)	FUNCDATA	$0, gclocals·FzY36IO2mY0y4dZ1+Izd/w==(SB)
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/compiler/sample.go:3)	FUNCDATA	$1, gclocals·FzY36IO2mY0y4dZ1+Izd/w==(SB)
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/compiler/sample.go:3)	FUNCDATA	$5, main.add.arginfo1(SB)
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/compiler/sample.go:3)	FUNCDATA	$6, main.add.argliveinfo(SB)
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/compiler/sample.go:3)	PCDATA	$3, $1
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/compiler/sample.go:4)	ADD	R1, R0, R0
+	0x0004 00004 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/compiler/sample.go:4)	RET	(R30)
+	0x0000 00 00 01 8b c0 03 5f d6 00 00 00 00 00 00 00 00  ......_.........
+main.main STEXT size=16 args=0x0 locals=0x0 funcid=0x0 align=0x0 leaf
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/compiler/sample.go:7)	TEXT	main.main(SB), LEAF|NOFRAME|ABIInternal, $0-0
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/compiler/sample.go:7)	FUNCDATA	$0, gclocals·FzY36IO2mY0y4dZ1+Izd/w==(SB)
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/compiler/sample.go:7)	FUNCDATA	$1, gclocals·FzY36IO2mY0y4dZ1+Izd/w==(SB)
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/compiler/sample.go:10)	RET	(R30)
+	0x0000 c0 03 5f d6 00 00 00 00 00 00 00 00 00 00 00 00  .._.............
+go:cuinfo.producer.main SDWARFCUINFO dupok size=0
+	0x0000 2d 73 68 61 72 65 64 20 72 65 67 61 62 69        -shared regabi
+go:cuinfo.packagename.main SDWARFCUINFO dupok size=0
+	0x0000 6d 61 69 6e                                      main
+go:info.main.add$abstract SDWARFABSFCN dupok size=30
+	0x0000 05 6d 61 69 6e 2e 61 64 64 00 01 03 01 22 61 00  .main.add...."a.
+	0x0010 00 00 00 00 00 22 62 00 00 00 00 00 00 00        ....."b.......
+	rel 17+4 t=R_DWARFSECREF go:info.int+0
+	rel 25+4 t=R_DWARFSECREF go:info.int+0
+main..inittask SNOPTRDATA size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+gclocals·FzY36IO2mY0y4dZ1+Izd/w== SRODATA dupok size=8
+	0x0000 01 00 00 00 00 00 00 00                          ........
+main.add.arginfo1 SRODATA static dupok size=5
+	0x0000 00 08 08 08 ff                                   .....
+main.add.argliveinfo SRODATA static dupok size=2
+	0x0000 00 00                                            ..
