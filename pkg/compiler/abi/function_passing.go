@@ -38,3 +38,14 @@ func processSmallByValue(s SmallStruct) int {
 func processSmallByPointer(s *SmallStruct) int {
 	return s.x + s.y
 }
+
+func main() {
+	mockData := [1000]int64{1, 2, 3, 4, 5}
+	largeStruct := LargeStruct{data: mockData, id: 1, name: "test"}
+	pointerOfLargeStruct := &largeStruct
+	processByValue(largeStruct)
+	processByPointer(pointerOfLargeStruct)
+}
+
+// using "go build -gcflags="-S -N -l" . 2>&1 | grep -A 30 -B 5 "processByValue\|processByPointer" > assembly_output.txt"
+// to generate assembly output
