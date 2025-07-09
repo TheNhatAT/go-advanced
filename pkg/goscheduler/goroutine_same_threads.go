@@ -7,7 +7,7 @@ import (
 	"sync"
 )
 
-func main() {
+func main_1() {
 	runtime.GOMAXPROCS(2) // Limit to 2 OS threads for demonstration
 
 	var wg sync.WaitGroup

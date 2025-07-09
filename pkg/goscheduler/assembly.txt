@@ -1,0 +1,1227 @@
+# command-line-arguments
+./stack_grows.go:15:5: can inline main.func1
+./stack_grows.go:43:12: inlining call to fmt.Printf
+./stack_grows.go:44:12: inlining call to fmt.Printf
+./stack_grows.go:45:12: inlining call to fmt.Printf
+./stack_grows.go:18:18: inlining call to runtime.Gosched
+./stack_grows.go:18:18: inlining call to runtime.checkTimeouts
+./stack_grows.go:11:20: inlining call to debug.SetGCPercent
+./stack_grows.go:13:12: inlining call to fmt.Printf
+./stack_grows.go:39:20: leaking param: context
+./stack_grows.go:43:12: ... argument does not escape
+./stack_grows.go:43:53: context escapes to heap
+./stack_grows.go:43:62: depth escapes to heap
+./stack_grows.go:44:12: ... argument does not escape
+./stack_grows.go:44:52: m.StackInuse / uint64(1024) escapes to heap
+./stack_grows.go:45:12: ... argument does not escape
+./stack_grows.go:45:55: m.StackSys / uint64(1024) escapes to heap
+./stack_grows.go:15:5: func literal escapes to heap
+main.main STEXT size=144 args=0x0 locals=0x48 funcid=0x0 align=0x0
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	TEXT	main.main(SB), ABIInternal, $80-0
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	MOVD	16(g), R16
+	0x0004 00004 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	PCDATA	$0, $-2
+	0x0004 00004 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	CMP	R16, RSP
+	0x0008 00008 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	BLS	120
+	0x000c 00012 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	PCDATA	$0, $-1
+	0x000c 00012 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	MOVD.W	R30, -80(RSP)
+	0x0010 00016 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	MOVD	R29, -8(RSP)
+	0x0014 00020 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	SUB	$8, RSP, R29
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	FUNCDATA	$0, gclocals·FzY36IO2mY0y4dZ1+Izd/w==(SB)
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	FUNCDATA	$1, gclocals·FzY36IO2mY0y4dZ1+Izd/w==(SB)
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:11)	HINT	$0
+	0x001c 00028 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/runtime/debug/garbage.go:94)	MOVD	$-1, R0
+	0x0020 00032 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/runtime/debug/garbage.go:94)	PCDATA	$1, $0
+	0x0020 00032 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/runtime/debug/garbage.go:94)	CALL	runtime/debug.setGCPercent(SB)
+	0x0024 00036 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/runtime/debug/garbage.go:94)	PCDATA	$0, $-3
+	0x0024 00036 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	os.Stdout(SB), R1
+	0x002c 00044 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	PCDATA	$0, $-1
+	0x002c 00044 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:13)	HINT	$0
+	0x0030 00048 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$go:itab.*os.File,io.Writer(SB), R0
+	0x0038 00056 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$go:string."=== Stack Growth Demonstration ===\n"(SB), R2
+	0x0040 00064 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$35, R3
+	0x0044 00068 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	ZR, R4
+	0x0048 00072 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	ZR, R5
+	0x004c 00076 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	R5, R6
+	0x0050 00080 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	CALL	fmt.Fprintf(SB)
+	0x0054 00084 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	MOVD	$main.main.func1·f(SB), R0
+	0x005c 00092 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	CALL	runtime.newproc(SB)
+	0x0060 00096 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:22)	MOVD	$2000000000, R0
+	0x0068 00104 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:22)	CALL	time.Sleep(SB)
+	0x006c 00108 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:23)	MOVD	-8(RSP), R29
+	0x0070 00112 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:23)	MOVD.P	80(RSP), R30
+	0x0074 00116 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:23)	RET	(R30)
+	0x0078 00120 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:23)	NOP
+	0x0078 00120 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	PCDATA	$1, $-1
+	0x0078 00120 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	PCDATA	$0, $-2
+	0x0078 00120 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	MOVD	R30, R3
+	0x007c 00124 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	CALL	runtime.morestack_noctxt(SB)
+	0x0080 00128 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	PCDATA	$0, $-1
+	0x0080 00128 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:10)	JMP	0
+	0x0000 90 0b 40 f9 ff 63 30 eb 89 03 00 54 fe 0f 1b f8  ..@..c0....T....
+	0x0010 fd 83 1f f8 fd 23 00 d1 1f 20 03 d5 00 00 80 92  .....#... ......
+	0x0020 00 00 00 94 1b 00 00 90 61 03 40 f9 1f 20 03 d5  ........a.@.. ..
+	0x0030 00 00 00 90 00 00 00 91 02 00 00 90 42 00 00 91  ............B...
+	0x0040 63 04 80 d2 e4 03 1f aa e5 03 1f aa e6 03 05 aa  c...............
+	0x0050 00 00 00 94 00 00 00 90 00 00 00 91 00 00 00 94  ................
+	0x0060 00 80 92 d2 a0 e6 ae f2 00 00 00 94 fd 83 5f f8  .............._.
+	0x0070 fe 07 45 f8 c0 03 5f d6 e3 03 1e aa 00 00 00 94  ..E..._.........
+	0x0080 e0 ff ff 17 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 0+0 t=R_USEIFACE type:*os.File+0
+	rel 32+4 t=R_CALLARM64 runtime/debug.setGCPercent+0
+	rel 36+8 t=R_ARM64_PCREL_LDST64 os.Stdout+0
+	rel 48+8 t=R_ADDRARM64 go:itab.*os.File,io.Writer+0
+	rel 56+8 t=R_ADDRARM64 go:string."=== Stack Growth Demonstration ===\n"+0
+	rel 80+4 t=R_CALLARM64 fmt.Fprintf+0
+	rel 84+8 t=R_ADDRARM64 main.main.func1·f+0
+	rel 92+4 t=R_CALLARM64 runtime.newproc+0
+	rel 104+4 t=R_CALLARM64 time.Sleep+0
+	rel 124+4 t=R_CALLARM64 runtime.morestack_noctxt+0
+main.recursiveFunction STEXT size=160 args=0x10 locals=0x28 funcid=0x0 align=0x0
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	TEXT	main.recursiveFunction(SB), ABIInternal, $48-16
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	MOVD	16(g), R16
+	0x0004 00004 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	PCDATA	$0, $-2
+	0x0004 00004 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	CMP	R16, RSP
+	0x0008 00008 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	BLS	136
+	0x000c 00012 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	PCDATA	$0, $-1
+	0x000c 00012 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	MOVD.W	R30, -48(RSP)
+	0x0010 00016 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	MOVD	R29, -8(RSP)
+	0x0014 00020 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	SUB	$8, RSP, R29
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	FUNCDATA	$0, gclocals·FzY36IO2mY0y4dZ1+Izd/w==(SB)
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	FUNCDATA	$1, gclocals·FzY36IO2mY0y4dZ1+Izd/w==(SB)
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	FUNCDATA	$5, main.recursiveFunction.arginfo1(SB)
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	FUNCDATA	$6, main.recursiveFunction.argliveinfo(SB)
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	PCDATA	$3, $1
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:30)	MOVD	R1, main.maxDepth+8(FP)
+	0x001c 00028 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:30)	PCDATA	$3, $2
+	0x001c 00028 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:30)	CMP	$5, R0
+	0x0020 00032 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:30)	BLE	76
+	0x0024 00036 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:30)	MOVD	$-3689348814741910323, R3
+	0x0034 00052 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:30)	SMULH	R0, R3, R3
+	0x0038 00056 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:30)	ADD	R0, R3, R3
+	0x003c 00060 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:30)	ASR	$3, R3, R3
+	0x0040 00064 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:30)	ADD	R3<<2, R3, R3
+	0x0044 00068 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:30)	CMP	R3<<1, R0
+	0x0048 00072 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:30)	BNE	108
+	0x004c 00076 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:30)	MOVD	R0, main.depth(FP)
+	0x0050 00080 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:30)	PCDATA	$3, $-1
+	0x0050 00080 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:31)	MOVD	$9, R1
+	0x0054 00084 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:31)	MOVD	R0, R2
+	0x0058 00088 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:31)	MOVD	$go:string."Recursive"(SB), R0
+	0x0060 00096 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:31)	PCDATA	$1, $0
+	0x0060 00096 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:31)	CALL	main.showStackInfo(SB)
+	0x0064 00100 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:34)	MOVD	main.depth(FP), R0
+	0x0068 00104 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:34)	MOVD	main.maxDepth+8(FP), R1
+	0x006c 00108 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:31)	PCDATA	$3, $2
+	0x006c 00108 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:34)	CMP	R0, R1
+	0x0070 00112 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:34)	BLE	124
+	0x0074 00116 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:35)	ADD	$1, R0, R0
+	0x0078 00120 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:35)	CALL	main.recursiveFunction(SB)
+	0x007c 00124 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:37)	MOVD	-8(RSP), R29
+	0x0080 00128 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:37)	MOVD.P	48(RSP), R30
+	0x0084 00132 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:37)	RET	(R30)
+	0x0088 00136 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:37)	NOP
+	0x0088 00136 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	PCDATA	$1, $-1
+	0x0088 00136 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	PCDATA	$0, $-2
+	0x0088 00136 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	STP	(R0, R1), 8(RSP)
+	0x008c 00140 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	MOVD	R30, R3
+	0x0090 00144 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	CALL	runtime.morestack_noctxt(SB)
+	0x0094 00148 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	PCDATA	$0, $-1
+	0x0094 00148 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	LDP	8(RSP), (R0, R1)
+	0x0098 00152 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:25)	JMP	0
+	0x0000 90 0b 40 f9 ff 63 30 eb 09 04 00 54 fe 0f 1d f8  ..@..c0....T....
+	0x0010 fd 83 1f f8 fd 23 00 d1 e1 23 00 f9 1f 14 00 f1  .....#...#......
+	0x0020 6d 01 00 54 a3 99 99 d2 83 99 b9 f2 83 99 d9 f2  m..T............
+	0x0030 83 99 f9 f2 63 7c 40 9b 63 00 00 8b 63 fc 43 93  ....c|@.c...c.C.
+	0x0040 63 08 03 8b 1f 04 03 eb 21 01 00 54 e0 1f 00 f9  c.......!..T....
+	0x0050 21 01 80 d2 e2 03 00 aa 00 00 00 90 00 00 00 91  !...............
+	0x0060 00 00 00 94 e0 1f 40 f9 e1 23 40 f9 3f 00 00 eb  ......@..#@.?...
+	0x0070 6d 00 00 54 00 04 00 91 00 00 00 94 fd 83 5f f8  m..T.........._.
+	0x0080 fe 07 43 f8 c0 03 5f d6 e0 87 00 a9 e3 03 1e aa  ..C..._.........
+	0x0090 00 00 00 94 e0 87 40 a9 da ff ff 17 00 00 00 00  ......@.........
+	rel 88+8 t=R_ADDRARM64 go:string."Recursive"+0
+	rel 96+4 t=R_CALLARM64 main.showStackInfo+0
+	rel 120+4 t=R_CALLARM64 main.recursiveFunction+0
+	rel 144+4 t=R_CALLARM64 runtime.morestack_noctxt+0
+main.showStackInfo STEXT size=432 args=0x18 locals=0x1718 funcid=0x0 align=0x0
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	TEXT	main.showStackInfo(SB), ABIInternal, $5920-24
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	MOVD	16(g), R16
+	0x0004 00004 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	PCDATA	$0, $-2
+	0x0004 00004 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	SUBS	$5792, RSP, R17
+	0x000c 00012 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	BLO	404
+	0x0010 00016 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	CMP	R16, R17
+	0x0014 00020 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	BLS	404
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	PCDATA	$0, $-1
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	PCDATA	$0, $-3
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	SUB	$5920, RSP, R20
+	0x0020 00032 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	PCDATA	$0, $-1
+	0x0020 00032 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	STP	(R29, R30), -8(R20)
+	0x0024 00036 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	PCDATA	$0, $-2
+	0x0024 00036 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	MOVD	R20, RSP
+	0x0028 00040 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	PCDATA	$0, $-1
+	0x0028 00040 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	SUB	$8, RSP, R29
+	0x002c 00044 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	FUNCDATA	$0, gclocals·cr247GbaOYSIwcehrHtzUg==(SB)
+	0x002c 00044 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	FUNCDATA	$1, gclocals·xwNAgecAfi4RP9dCeVDjEQ==(SB)
+	0x002c 00044 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	FUNCDATA	$2, main.showStackInfo.stkobj(SB)
+	0x002c 00044 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	FUNCDATA	$5, main.showStackInfo.arginfo1(SB)
+	0x002c 00044 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	FUNCDATA	$6, main.showStackInfo.argliveinfo(SB)
+	0x002c 00044 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	PCDATA	$3, $1
+	0x002c 00044 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:46)	MOVD	R2, main.depth+16(FP)
+	0x0030 00048 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:46)	MOVD	R1, main.context+8(FP)
+	0x0034 00052 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:46)	MOVD	R0, main.context(FP)
+	0x0038 00056 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:46)	PCDATA	$3, $-1
+	0x0038 00056 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:40)	MOVD	$main.m-5840(SP), R16
+	0x003c 00060 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:40)	MOVD	$main.m-80(SP), R1
+	0x0044 00068 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:40)	STP.P	(ZR, ZR), 16(R16)
+	0x0048 00072 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:40)	CMP	R1, R16
+	0x004c 00076 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:40)	BLE	68
+	0x0050 00080 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:41)	MOVD	$main.m-5840(SP), R0
+	0x0054 00084 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:41)	PCDATA	$1, $0
+	0x0054 00084 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:41)	CALL	runtime.ReadMemStats(SB)
+	0x0058 00088 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:41)	PCDATA	$0, $-4
+	0x0058 00088 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	STP	(ZR, ZR), main..autotmp_24-32(SP)
+	0x0064 00100 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	PCDATA	$0, $-3
+	0x0064 00100 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	STP	(ZR, ZR), main..autotmp_24-16(SP)
+	0x0070 00112 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	PCDATA	$0, $-1
+	0x0070 00112 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	MOVD	main.context(FP), R0
+	0x0074 00116 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	MOVD	main.context+8(FP), R1
+	0x0078 00120 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	PCDATA	$1, $1
+	0x0078 00120 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	CALL	runtime.convTstring(SB)
+	0x007c 00124 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	MOVD	$type:string(SB), R1
+	0x0084 00132 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	MOVD	R1, main..autotmp_24-32(SP)
+	0x0088 00136 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	MOVD	R0, main..autotmp_24-24(SP)
+	0x008c 00140 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	MOVD	main.depth+16(FP), R0
+	0x0090 00144 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	CALL	runtime.convT64(SB)
+	0x0094 00148 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	MOVD	$type:int(SB), R1
+	0x009c 00156 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	MOVD	R1, main..autotmp_24-16(SP)
+	0x00a0 00160 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	MOVD	R0, main..autotmp_24-8(SP)
+	0x00a4 00164 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:43)	PCDATA	$0, $-4
+	0x00a4 00164 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	os.Stdout(SB), R1
+	0x00ac 00172 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	PCDATA	$0, $-1
+	0x00ac 00172 (<unknown line number>)	NOP
+	0x00ac 00172 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$go:itab.*os.File,io.Writer(SB), R0
+	0x00b4 00180 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$go:string."%s (depth %d): Stack usage pattern\n"(SB), R2
+	0x00bc 00188 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$35, R3
+	0x00c0 00192 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$main..autotmp_24-32(SP), R4
+	0x00c8 00200 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$2, R5
+	0x00cc 00204 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	R5, R6
+	0x00d0 00208 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	PCDATA	$1, $2
+	0x00d0 00208 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	CALL	fmt.Fprintf(SB)
+	0x00d4 00212 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	PCDATA	$0, $-3
+	0x00d4 00212 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:44)	STP	(ZR, ZR), main..autotmp_28-48(SP)
+	0x00e0 00224 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:44)	PCDATA	$0, $-1
+	0x00e0 00224 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:44)	MOVD	main.m-5744(SP), R1
+	0x00e4 00228 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:44)	LSR	$10, R1, R0
+	0x00e8 00232 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:44)	PCDATA	$1, $3
+	0x00e8 00232 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:44)	CALL	runtime.convT64(SB)
+	0x00ec 00236 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:44)	MOVD	$type:uint64(SB), R1
+	0x00f4 00244 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:44)	MOVD	R1, main..autotmp_28-48(SP)
+	0x00f8 00248 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:44)	MOVD	R0, main..autotmp_28-40(SP)
+	0x00fc 00252 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:44)	PCDATA	$0, $-4
+	0x00fc 00252 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	os.Stdout(SB), R1
+	0x0104 00260 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	PCDATA	$0, $-1
+	0x0104 00260 (<unknown line number>)	NOP
+	0x0104 00260 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$go:itab.*os.File,io.Writer(SB), R0
+	0x010c 00268 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$go:string."  Stack in use: %d KB\n"(SB), R2
+	0x0114 00276 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$22, R3
+	0x0118 00280 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$main..autotmp_28-48(SP), R4
+	0x0120 00288 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$1, R5
+	0x0124 00292 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	R5, R6
+	0x0128 00296 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	PCDATA	$1, $2
+	0x0128 00296 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	CALL	fmt.Fprintf(SB)
+	0x012c 00300 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	PCDATA	$0, $-3
+	0x012c 00300 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:45)	STP	(ZR, ZR), main..autotmp_32-64(SP)
+	0x0138 00312 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:45)	PCDATA	$0, $-1
+	0x0138 00312 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:45)	MOVD	main.m-5736(SP), R1
+	0x013c 00316 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:45)	LSR	$10, R1, R0
+	0x0140 00320 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:45)	PCDATA	$1, $4
+	0x0140 00320 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:45)	CALL	runtime.convT64(SB)
+	0x0144 00324 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:45)	MOVD	$type:uint64(SB), R1
+	0x014c 00332 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:45)	MOVD	R1, main..autotmp_32-64(SP)
+	0x0150 00336 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:45)	MOVD	R0, main..autotmp_32-56(SP)
+	0x0154 00340 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:45)	PCDATA	$0, $-4
+	0x0154 00340 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	os.Stdout(SB), R1
+	0x015c 00348 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	PCDATA	$0, $-1
+	0x015c 00348 (<unknown line number>)	NOP
+	0x015c 00348 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$go:itab.*os.File,io.Writer(SB), R0
+	0x0164 00356 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$go:string."  Stack from system: %d KB\n"(SB), R2
+	0x016c 00364 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$27, R3
+	0x0170 00368 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$main..autotmp_32-64(SP), R4
+	0x0178 00376 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	$1, R5
+	0x017c 00380 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	MOVD	R5, R6
+	0x0180 00384 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	PCDATA	$1, $2
+	0x0180 00384 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/fmt/print.go:233)	CALL	fmt.Fprintf(SB)
+	0x0184 00388 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:46)	LDP	-8(RSP), (R29, R30)
+	0x0188 00392 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:46)	PCDATA	$0, $-3
+	0x0188 00392 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:46)	ADD	$5920, RSP
+	0x0190 00400 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:46)	PCDATA	$0, $-1
+	0x0190 00400 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:46)	RET	(R30)
+	0x0194 00404 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:46)	NOP
+	0x0194 00404 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	PCDATA	$1, $-1
+	0x0194 00404 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	PCDATA	$0, $-2
+	0x0194 00404 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	STP	(R0, R1), 8(RSP)
+	0x0198 00408 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	MOVD	R2, 24(RSP)
+	0x019c 00412 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	MOVD	R30, R3
+	0x01a0 00416 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	CALL	runtime.morestack_noctxt(SB)
+	0x01a4 00420 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	PCDATA	$0, $-1
+	0x01a4 00420 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	LDP	8(RSP), (R0, R1)
+	0x01a8 00424 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	MOVD	24(RSP), R2
+	0x01ac 00428 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:39)	JMP	0
+	0x0000 90 0b 40 f9 1b d4 82 d2 f1 63 3b eb 43 0c 00 54  ..@......c;.C..T
+	0x0010 3f 02 10 eb 09 0c 00 54 1b e4 82 d2 f4 63 3b cb  ?......T.....c;.
+	0x0020 9d fa 3f a9 9f 02 00 91 fd 23 00 d1 e2 9f 0b f9  ..?......#......
+	0x0030 e1 9b 0b f9 e0 97 0b f9 f0 23 01 91 e1 07 40 91  .........#....@.
+	0x0040 21 20 1b 91 1f 7e 81 a8 1f 02 01 eb cd ff ff 54  ! ...~.........T
+	0x0050 e0 23 01 91 00 00 00 94 fb e3 1b 91 7b 07 40 91  .#..........{.@.
+	0x0060 7f 7f 00 a9 fb 23 1c 91 7b 07 40 91 7f 7f 00 a9  .....#..{.@.....
+	0x0070 e0 97 4b f9 e1 9b 4b f9 00 00 00 94 01 00 00 90  ..K...K.........
+	0x0080 21 00 00 91 e1 7f 0b f9 e0 83 0b f9 e0 9f 4b f9  !.............K.
+	0x0090 00 00 00 94 01 00 00 90 21 00 00 91 e1 87 0b f9  ........!.......
+	0x00a0 e0 8b 0b f9 1b 00 00 90 61 03 40 f9 00 00 00 90  ........a.@.....
+	0x00b0 00 00 00 91 02 00 00 90 42 00 00 91 63 04 80 d2  ........B...c...
+	0x00c0 e4 07 40 91 84 e0 1b 91 e5 03 7f b2 e6 03 05 aa  ..@.............
+	0x00d0 00 00 00 94 fb a3 1b 91 7b 07 40 91 7f 7f 00 a9  ........{.@.....
+	0x00e0 e1 57 40 f9 20 fc 4a d3 00 00 00 94 01 00 00 90  .W@. .J.........
+	0x00f0 21 00 00 91 e1 77 0b f9 e0 7b 0b f9 1b 00 00 90  !....w...{......
+	0x0100 61 03 40 f9 00 00 00 90 00 00 00 91 02 00 00 90  a.@.............
+	0x0110 42 00 00 91 c3 02 80 d2 e4 07 40 91 84 a0 1b 91  B.........@.....
+	0x0120 e5 03 40 b2 e6 03 05 aa 00 00 00 94 fb 63 1b 91  ..@..........c..
+	0x0130 7b 07 40 91 7f 7f 00 a9 e1 5b 40 f9 20 fc 4a d3  {.@......[@. .J.
+	0x0140 00 00 00 94 01 00 00 90 21 00 00 91 e1 6f 0b f9  ........!....o..
+	0x0150 e0 73 0b f9 1b 00 00 90 61 03 40 f9 00 00 00 90  .s......a.@.....
+	0x0160 00 00 00 91 02 00 00 90 42 00 00 91 63 03 80 d2  ........B...c...
+	0x0170 e4 07 40 91 84 60 1b 91 e5 03 40 b2 e6 03 05 aa  ..@..`....@.....
+	0x0180 00 00 00 94 fd fb 7f a9 1b e4 82 d2 ff 63 3b 8b  .............c;.
+	0x0190 c0 03 5f d6 e0 87 00 a9 e2 0f 00 f9 e3 03 1e aa  .._.............
+	0x01a0 00 00 00 94 e0 87 40 a9 e2 0f 40 f9 95 ff ff 17  ......@...@.....
+	rel 0+0 t=R_USEIFACE type:string+0
+	rel 0+0 t=R_USEIFACE type:int+0
+	rel 0+0 t=R_USEIFACE type:*os.File+0
+	rel 0+0 t=R_USEIFACE type:uint64+0
+	rel 0+0 t=R_USEIFACE type:*os.File+0
+	rel 0+0 t=R_USEIFACE type:uint64+0
+	rel 0+0 t=R_USEIFACE type:*os.File+0
+	rel 84+4 t=R_CALLARM64 runtime.ReadMemStats+0
+	rel 120+4 t=R_CALLARM64 runtime.convTstring+0
+	rel 124+8 t=R_ADDRARM64 type:string+0
+	rel 144+4 t=R_CALLARM64 runtime.convT64+0
+	rel 148+8 t=R_ADDRARM64 type:int+0
+	rel 164+8 t=R_ARM64_PCREL_LDST64 os.Stdout+0
+	rel 172+8 t=R_ADDRARM64 go:itab.*os.File,io.Writer+0
+	rel 180+8 t=R_ADDRARM64 go:string."%s (depth %d): Stack usage pattern\n"+0
+	rel 208+4 t=R_CALLARM64 fmt.Fprintf+0
+	rel 232+4 t=R_CALLARM64 runtime.convT64+0
+	rel 236+8 t=R_ADDRARM64 type:uint64+0
+	rel 252+8 t=R_ARM64_PCREL_LDST64 os.Stdout+0
+	rel 260+8 t=R_ADDRARM64 go:itab.*os.File,io.Writer+0
+	rel 268+8 t=R_ADDRARM64 go:string."  Stack in use: %d KB\n"+0
+	rel 296+4 t=R_CALLARM64 fmt.Fprintf+0
+	rel 320+4 t=R_CALLARM64 runtime.convT64+0
+	rel 324+8 t=R_ADDRARM64 type:uint64+0
+	rel 340+8 t=R_ARM64_PCREL_LDST64 os.Stdout+0
+	rel 348+8 t=R_ADDRARM64 go:itab.*os.File,io.Writer+0
+	rel 356+8 t=R_ADDRARM64 go:string."  Stack from system: %d KB\n"+0
+	rel 384+4 t=R_CALLARM64 fmt.Fprintf+0
+	rel 416+4 t=R_CALLARM64 runtime.morestack_noctxt+0
+main.main.func1 STEXT size=112 args=0x0 locals=0x28 funcid=0x0 align=0x0
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	TEXT	main.main.func1(SB), ABIInternal, $48-0
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	MOVD	16(g), R16
+	0x0004 00004 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	PCDATA	$0, $-2
+	0x0004 00004 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	CMP	R16, RSP
+	0x0008 00008 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	BLS	88
+	0x000c 00012 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	PCDATA	$0, $-1
+	0x000c 00012 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	MOVD.W	R30, -48(RSP)
+	0x0010 00016 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	MOVD	R29, -8(RSP)
+	0x0014 00020 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	SUB	$8, RSP, R29
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	FUNCDATA	$0, gclocals·FzY36IO2mY0y4dZ1+Izd/w==(SB)
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	FUNCDATA	$1, gclocals·FzY36IO2mY0y4dZ1+Izd/w==(SB)
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:16)	MOVD	$go:string."Initial"(SB), R0
+	0x0020 00032 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:16)	MOVD	$7, R1
+	0x0024 00036 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:16)	MOVD	ZR, R2
+	0x0028 00040 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:16)	PCDATA	$1, $0
+	0x0028 00040 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:16)	CALL	main.showStackInfo(SB)
+	0x002c 00044 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:17)	MOVD	$1, R0
+	0x0030 00048 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:17)	MOVD	$50, R1
+	0x0034 00052 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:17)	CALL	main.recursiveFunction(SB)
+	0x0038 00056 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:18)	HINT	$0
+	0x003c 00060 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/runtime/proc.go:364)	MOVD	$runtime.gosched_m·f(SB), R0
+	0x0044 00068 (/Users/g2-nhat.nguyen-dev/sdk/go1.24.1/src/runtime/proc.go:364)	CALL	runtime.mcall(SB)
+	0x0048 00072 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:19)	CALL	runtime.GC(SB)
+	0x004c 00076 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:20)	MOVD	-8(RSP), R29
+	0x0050 00080 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:20)	MOVD.P	48(RSP), R30
+	0x0054 00084 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:20)	RET	(R30)
+	0x0058 00088 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:20)	NOP
+	0x0058 00088 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	PCDATA	$1, $-1
+	0x0058 00088 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	PCDATA	$0, $-2
+	0x0058 00088 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	MOVD	R30, R3
+	0x005c 00092 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	CALL	runtime.morestack_noctxt(SB)
+	0x0060 00096 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	PCDATA	$0, $-1
+	0x0060 00096 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/goscheduler/stack_grows.go:15)	JMP	0
+	0x0000 90 0b 40 f9 ff 63 30 eb 89 02 00 54 fe 0f 1d f8  ..@..c0....T....
+	0x0010 fd 83 1f f8 fd 23 00 d1 00 00 00 90 00 00 00 91  .....#..........
+	0x0020 e1 0b 40 b2 e2 03 1f aa 00 00 00 94 e0 03 40 b2  ..@...........@.
+	0x0030 41 06 80 d2 00 00 00 94 1f 20 03 d5 00 00 00 90  A........ ......
+	0x0040 00 00 00 91 00 00 00 94 00 00 00 94 fd 83 5f f8  .............._.
+	0x0050 fe 07 43 f8 c0 03 5f d6 e3 03 1e aa 00 00 00 94  ..C..._.........
+	0x0060 e8 ff ff 17 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 24+8 t=R_ADDRARM64 go:string."Initial"+0
+	rel 40+4 t=R_CALLARM64 main.showStackInfo+0
+	rel 52+4 t=R_CALLARM64 main.recursiveFunction+0
+	rel 60+8 t=R_ADDRARM64 runtime.gosched_m·f+0
+	rel 68+4 t=R_CALLARM64 runtime.mcall+0
+	rel 72+4 t=R_CALLARM64 runtime.GC+0
+	rel 92+4 t=R_CALLARM64 runtime.morestack_noctxt+0
+type:.eq.sync/atomic.Pointer[os.dirInfo] STEXT dupok size=32 args=0x10 locals=0x0 funcid=0x0 align=0x0 leaf
+	0x0000 00000 (<autogenerated>:1)	TEXT	type:.eq.sync/atomic.Pointer[os.dirInfo](SB), DUPOK|LEAF|NOFRAME|ABIInternal, $0-16
+	0x0000 00000 (<autogenerated>:1)	FUNCDATA	$0, gclocals·rJbr+btbFJy3NLIRCgNSZQ==(SB)
+	0x0000 00000 (<autogenerated>:1)	FUNCDATA	$1, gclocals·ISb46fRPFoZ9pIfykFK/kQ==(SB)
+	0x0000 00000 (<autogenerated>:1)	FUNCDATA	$5, type:.eq.sync/atomic.Pointer[os.dirInfo].arginfo1(SB)
+	0x0000 00000 (<autogenerated>:1)	FUNCDATA	$6, type:.eq.sync/atomic.Pointer[os.dirInfo].argliveinfo(SB)
+	0x0000 00000 (<autogenerated>:1)	PCDATA	$3, $1
+	0x0000 00000 (<autogenerated>:1)	MOVD	(R1), R1
+	0x0004 00004 (<autogenerated>:1)	MOVD	(R0), R2
+	0x0008 00008 (<autogenerated>:1)	CMP	R2, R1
+	0x000c 00012 (<autogenerated>:1)	CSET	EQ, R0
+	0x0010 00016 (<autogenerated>:1)	RET	(R30)
+	0x0000 21 00 40 f9 02 00 40 f9 3f 00 02 eb e0 17 9f 9a  !.@...@.?.......
+	0x0010 c0 03 5f d6 00 00 00 00 00 00 00 00 00 00 00 00  .._.............
+type:.eq.[2]interface {} STEXT dupok size=176 args=0x10 locals=0x28 funcid=0x0 align=0x0
+	0x0000 00000 (<autogenerated>:1)	TEXT	type:.eq.[2]interface {}(SB), DUPOK|ABIInternal, $48-16
+	0x0000 00000 (<autogenerated>:1)	MOVD	16(g), R16
+	0x0004 00004 (<autogenerated>:1)	PCDATA	$0, $-2
+	0x0004 00004 (<autogenerated>:1)	CMP	R16, RSP
+	0x0008 00008 (<autogenerated>:1)	BLS	144
+	0x000c 00012 (<autogenerated>:1)	PCDATA	$0, $-1
+	0x000c 00012 (<autogenerated>:1)	MOVD.W	R30, -48(RSP)
+	0x0010 00016 (<autogenerated>:1)	MOVD	R29, -8(RSP)
+	0x0014 00020 (<autogenerated>:1)	SUB	$8, RSP, R29
+	0x0018 00024 (<autogenerated>:1)	FUNCDATA	$0, gclocals·rJbr+btbFJy3NLIRCgNSZQ==(SB)
+	0x0018 00024 (<autogenerated>:1)	FUNCDATA	$1, gclocals·ISb46fRPFoZ9pIfykFK/kQ==(SB)
+	0x0018 00024 (<autogenerated>:1)	FUNCDATA	$5, type:.eq.[2]interface {}.arginfo1(SB)
+	0x0018 00024 (<autogenerated>:1)	FUNCDATA	$6, type:.eq.[2]interface {}.argliveinfo(SB)
+	0x0018 00024 (<autogenerated>:1)	PCDATA	$3, $1
+	0x0018 00024 (<autogenerated>:1)	MOVD	R0, main.p(FP)
+	0x001c 00028 (<autogenerated>:1)	MOVD	R1, main.q+8(FP)
+	0x0020 00032 (<autogenerated>:1)	PCDATA	$3, $-1
+	0x0020 00032 (<autogenerated>:1)	MOVD	ZR, R2
+	0x0024 00036 (<autogenerated>:1)	JMP	52
+	0x0028 00040 (<autogenerated>:1)	ADD	$1, R3, R2
+	0x002c 00044 (<autogenerated>:1)	MOVD	main.p(FP), R0
+	0x0030 00048 (<autogenerated>:1)	MOVD	main.q+8(FP), R1
+	0x0034 00052 (<autogenerated>:1)	CMP	$2, R2
+	0x0038 00056 (<autogenerated>:1)	BGE	128
+	0x003c 00060 (<autogenerated>:1)	LSL	$4, R2, R3
+	0x0040 00064 (<autogenerated>:1)	MOVD	(R0)(R3), R4
+	0x0044 00068 (<autogenerated>:1)	MOVD	(R1)(R3), R3
+	0x0048 00072 (<autogenerated>:1)	ADD	R2<<4, R1, R5
+	0x004c 00076 (<autogenerated>:1)	ADD	R2<<4, R0, R6
+	0x0050 00080 (<autogenerated>:1)	CMP	R4, R3
+	0x0054 00084 (<autogenerated>:1)	BNE	124
+	0x0058 00088 (<autogenerated>:1)	MOVD	R2, main..autotmp_6-8(SP)
+	0x005c 00092 (<autogenerated>:1)	MOVD	8(R6), R1
+	0x0060 00096 (<autogenerated>:1)	MOVD	8(R5), R2
+	0x0064 00100 (<autogenerated>:1)	MOVD	R4, R0
+	0x0068 00104 (<autogenerated>:1)	PCDATA	$1, $0
+	0x0068 00104 (<autogenerated>:1)	CALL	runtime.efaceeq(SB)
+	0x006c 00108 (<autogenerated>:1)	MOVD	main..autotmp_6-8(SP), R3
+	0x0070 00112 (<autogenerated>:1)	CMP	$2, R3
+	0x0074 00116 (<autogenerated>:1)	TBNZ	$0, R0, 40
+	0x0078 00120 (<autogenerated>:1)	JMP	128
+	0x007c 00124 (<autogenerated>:1)	CMP	$2, R2
+	0x0080 00128 (<autogenerated>:1)	CSET	GE, R0
+	0x0084 00132 (<autogenerated>:1)	MOVD	-8(RSP), R29
+	0x0088 00136 (<autogenerated>:1)	MOVD.P	48(RSP), R30
+	0x008c 00140 (<autogenerated>:1)	RET	(R30)
+	0x0090 00144 (<autogenerated>:1)	NOP
+	0x0090 00144 (<autogenerated>:1)	PCDATA	$1, $-1
+	0x0090 00144 (<autogenerated>:1)	PCDATA	$0, $-2
+	0x0090 00144 (<autogenerated>:1)	STP	(R0, R1), 8(RSP)
+	0x0094 00148 (<autogenerated>:1)	MOVD	R30, R3
+	0x0098 00152 (<autogenerated>:1)	CALL	runtime.morestack_noctxt(SB)
+	0x009c 00156 (<autogenerated>:1)	PCDATA	$0, $-1
+	0x009c 00156 (<autogenerated>:1)	LDP	8(RSP), (R0, R1)
+	0x00a0 00160 (<autogenerated>:1)	JMP	0
+	0x0000 90 0b 40 f9 ff 63 30 eb 49 04 00 54 fe 0f 1d f8  ..@..c0.I..T....
+	0x0010 fd 83 1f f8 fd 23 00 d1 e0 1f 00 f9 e1 23 00 f9  .....#.......#..
+	0x0020 e2 03 1f aa 04 00 00 14 62 04 00 91 e0 1f 40 f9  ........b.....@.
+	0x0030 e1 23 40 f9 5f 08 00 f1 4a 02 00 54 43 ec 7c d3  .#@._...J..TC.|.
+	0x0040 04 68 63 f8 23 68 63 f8 25 10 02 8b 06 10 02 8b  .hc.#hc.%.......
+	0x0050 7f 00 04 eb 41 01 00 54 e2 13 00 f9 c1 04 40 f9  ....A..T......@.
+	0x0060 a2 04 40 f9 e0 03 04 aa 00 00 00 94 e3 13 40 f9  ..@...........@.
+	0x0070 7f 08 00 f1 a0 fd 07 37 02 00 00 14 5f 08 00 f1  .......7...._...
+	0x0080 e0 b7 9f 9a fd 83 5f f8 fe 07 43 f8 c0 03 5f d6  ......_...C..._.
+	0x0090 e0 87 00 a9 e3 03 1e aa 00 00 00 94 e0 87 40 a9  ..............@.
+	0x00a0 d8 ff ff 17 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 104+4 t=R_CALLARM64 runtime.efaceeq+0
+	rel 152+4 t=R_CALLARM64 runtime.morestack_noctxt+0
+go:cuinfo.producer.main SDWARFCUINFO dupok size=0
+	0x0000 2d 73 68 61 72 65 64 20 72 65 67 61 62 69        -shared regabi
+go:cuinfo.packagename.main SDWARFCUINFO dupok size=0
+	0x0000 6d 61 69 6e                                      main
+go:info.fmt.Printf$abstract SDWARFABSFCN dupok size=56
+	0x0000 05 66 6d 74 2e 50 72 69 6e 74 66 00 01 e8 01 01  .fmt.Printf.....
+	0x0010 22 66 6f 72 6d 61 74 00 00 00 00 00 00 22 61 00  "format......"a.
+	0x0020 00 00 00 00 00 22 6e 00 01 00 00 00 00 22 65 72  ....."n......"er
+	0x0030 72 00 01 00 00 00 00 00                          r.......
+	rel 0+0 t=R_USETYPE type:[]interface {}+0
+	rel 0+0 t=R_USETYPE type:error+0
+	rel 0+0 t=R_USETYPE type:int+0
+	rel 0+0 t=R_USETYPE type:string+0
+	rel 25+4 t=R_DWARFSECREF go:info.string+0
+	rel 33+4 t=R_DWARFSECREF go:info.[]interface {}+0
+	rel 41+4 t=R_DWARFSECREF go:info.int+0
+	rel 51+4 t=R_DWARFSECREF go:info.error+0
+go:itab.*os.File,io.Writer SRODATA dupok size=32
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 c1 d7 bc cc 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 0+8 t=R_ADDR type:io.Writer+0
+	rel 8+8 t=R_ADDR type:*os.File+0
+	rel 24+8 t=RelocType(-32767) os.(*File).Write+0
+sync/atomic..dict.Pointer[os.dirInfo] SRODATA dupok size=128
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0050 00 00 00 00 00 00 00 00                          ........
+	rel 0+0 t=R_USEIFACE type:*os.dirInfo+0
+	rel 0+0 t=R_USEIFACE type:*os.dirInfo+0
+	rel 0+0 t=R_USEIFACE type:*os.dirInfo+0
+	rel 0+0 t=R_USEIFACE type:*os.dirInfo+0
+	rel 0+0 t=R_USEIFACE type:*os.dirInfo+0
+	rel 0+0 t=R_USEIFACE type:*os.dirInfo+0
+	rel 0+0 t=R_USEIFACE type:unsafe.Pointer+0
+	rel 0+0 t=R_USEIFACE type:*sync/atomic.Pointer[os.dirInfo]+0
+	rel 0+8 t=R_ADDR type:*sync/atomic.Pointer[os.dirInfo]+0
+	rel 0+0 t=R_USEIFACE type:*os.dirInfo+0
+	rel 0+0 t=R_USEIFACE type:unsafe.Pointer+0
+	rel 0+0 t=R_USEIFACE type:*sync/atomic.Pointer[os.dirInfo]+0
+	rel 0+0 t=R_USEIFACE type:*sync/atomic.Pointer[os.dirInfo]+0
+	rel 0+0 t=R_USEIFACE type:unsafe.Pointer+0
+	rel 0+0 t=R_USEIFACE type:*os.dirInfo+0
+	rel 0+0 t=R_USEIFACE type:*os.dirInfo+0
+	rel 0+0 t=R_USEIFACE type:*os.dirInfo+0
+	rel 0+0 t=R_USEIFACE type:*os.dirInfo+0
+	rel 0+0 t=R_USEIFACE type:unsafe.Pointer+0
+	rel 0+0 t=R_USEIFACE type:*sync/atomic.Pointer[os.dirInfo]+0
+	rel 0+0 t=R_USEIFACE type:unsafe.Pointer+0
+	rel 0+0 t=R_USEIFACE type:*os.dirInfo+0
+	rel 8+8 t=R_ADDR type:*os.dirInfo+0
+	rel 16+8 t=R_ADDR type:*os.dirInfo+0
+	rel 24+8 t=R_ADDR type:*sync/atomic.Pointer[os.dirInfo]+0
+	rel 32+8 t=R_ADDR type:*os.dirInfo+0
+	rel 40+8 t=R_ADDR type:*sync/atomic.Pointer[os.dirInfo]+0
+	rel 48+8 t=R_ADDR type:*os.dirInfo+0
+	rel 56+8 t=R_ADDR type:*os.dirInfo+0
+	rel 64+8 t=R_ADDR type:*os.dirInfo+0
+	rel 72+8 t=R_ADDR type:*sync/atomic.Pointer[os.dirInfo]+0
+	rel 80+8 t=R_ADDR type:*os.dirInfo+0
+go:info.runtime.Gosched$abstract SDWARFABSFCN dupok size=22
+	0x0000 05 72 75 6e 74 69 6d 65 2e 47 6f 73 63 68 65 64  .runtime.Gosched
+	0x0010 00 01 ea 02 01 00                                ......
+internal/runtime/atomic..dict.Pointer[runtime._defer] SRODATA dupok size=128
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0050 00 00 00 00 00 00 00 00                          ........
+	rel 0+0 t=R_USEIFACE type:unsafe.Pointer+0
+	rel 0+0 t=R_USEIFACE type:*runtime._defer+0
+	rel 0+0 t=R_USEIFACE type:*runtime._defer+0
+	rel 0+0 t=R_USEIFACE type:*runtime._defer+0
+	rel 0+0 t=R_USEIFACE type:*runtime._defer+0
+	rel 0+0 t=R_USEIFACE type:*runtime._defer+0
+	rel 0+0 t=R_USEIFACE type:unsafe.Pointer+0
+	rel 0+0 t=R_USEIFACE type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 0+8 t=R_ADDR type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 0+0 t=R_USEIFACE type:*runtime._defer+0
+	rel 0+0 t=R_USEIFACE type:unsafe.Pointer+0
+	rel 0+0 t=R_USEIFACE type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 0+0 t=R_USEIFACE type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 0+0 t=R_USEIFACE type:unsafe.Pointer+0
+	rel 0+0 t=R_USEIFACE type:*runtime._defer+0
+	rel 0+0 t=R_USEIFACE type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 0+0 t=R_USEIFACE type:*runtime._defer+0
+	rel 0+0 t=R_USEIFACE type:*runtime._defer+0
+	rel 0+0 t=R_USEIFACE type:unsafe.Pointer+0
+	rel 0+0 t=R_USEIFACE type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 0+0 t=R_USEIFACE type:*runtime._defer+0
+	rel 0+0 t=R_USEIFACE type:*runtime._defer+0
+	rel 8+8 t=R_ADDR type:*runtime._defer+0
+	rel 16+8 t=R_ADDR type:*runtime._defer+0
+	rel 24+8 t=R_ADDR type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 32+8 t=R_ADDR type:*runtime._defer+0
+	rel 40+8 t=R_ADDR type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 48+8 t=R_ADDR type:*runtime._defer+0
+	rel 56+8 t=R_ADDR type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 64+8 t=R_ADDR type:*runtime._defer+0
+	rel 72+8 t=R_ADDR type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 80+8 t=R_ADDR type:*runtime._defer+0
+go:info.runtime.checkTimeouts$abstract SDWARFABSFCN dupok size=28
+	0x0000 05 72 75 6e 74 69 6d 65 2e 63 68 65 63 6b 54 69  .runtime.checkTi
+	0x0010 6d 65 6f 75 74 73 00 01 b9 01 01 00              meouts......
+go:info.runtime/debug.SetGCPercent$abstract SDWARFABSFCN dupok size=46
+	0x0000 05 72 75 6e 74 69 6d 65 2f 64 65 62 75 67 2e 53  .runtime/debug.S
+	0x0010 65 74 47 43 50 65 72 63 65 6e 74 00 01 5d 01 22  etGCPercent..]."
+	0x0020 70 65 72 63 65 6e 74 00 00 00 00 00 00 00        percent.......
+	rel 0+0 t=R_USETYPE type:int+0
+	rel 41+4 t=R_DWARFSECREF go:info.int+0
+main..inittask SNOPTRDATA size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+0 t=R_INITORDER fmt..inittask+0
+	rel 0+0 t=R_INITORDER runtime..inittask+0
+	rel 0+0 t=R_INITORDER runtime/debug..inittask+0
+	rel 0+0 t=R_INITORDER time..inittask+0
+runtime.memequal64·f SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=R_ADDR runtime.memequal64+0
+runtime.gcbits.0100000000000000 SRODATA dupok size=8
+	0x0000 01 00 00 00 00 00 00 00                          ........
+type:.namedata.*atomic.Pointer[runtime._defer]. SRODATA dupok size=33
+	0x0000 01 1f 2a 61 74 6f 6d 69 63 2e 50 6f 69 6e 74 65  ..*atomic.Pointe
+	0x0010 72 5b 72 75 6e 74 69 6d 65 2e 5f 64 65 66 65 72  r[runtime._defer
+	0x0020 5d                                               ]
+type:.importpath.internal/runtime/atomic. SRODATA dupok size=25
+	0x0000 00 17 69 6e 74 65 72 6e 61 6c 2f 72 75 6e 74 69  ..internal/runti
+	0x0010 6d 65 2f 61 74 6f 6d 69 63                       me/atomic
+type:.namedata.u- SRODATA dupok size=3
+	0x0000 00 01 75                                         ..u
+type:internal/runtime/atomic.Pointer[runtime._defer] SRODATA dupok size=120
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 cc 38 04 d6 0f 08 08 19 00 00 00 00 00 00 00 00  .8..............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00  ................
+	0x0050 00 00 00 00 00 00 00 00 28 00 00 00 00 00 00 00  ........(.......
+	0x0060 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0070 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*atomic.Pointer[runtime._defer].+0
+	rel 44+4 t=R_ADDROFF type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 48+8 t=R_ADDR type:.importpath.internal/runtime/atomic.+0
+	rel 56+8 t=R_ADDR type:internal/runtime/atomic.Pointer[runtime._defer]+96
+	rel 80+4 t=R_ADDROFF type:.importpath.internal/runtime/atomic.+0
+	rel 96+8 t=R_ADDR type:.namedata.u-+0
+	rel 104+8 t=R_ADDR type:internal/runtime/atomic.UnsafePointer+0
+type:.namedata.*func(*atomic.Pointer[runtime._defer], *runtime._defer, *runtime._defer) bool- SRODATA dupok size=79
+	0x0000 00 4d 2a 66 75 6e 63 28 2a 61 74 6f 6d 69 63 2e  .M*func(*atomic.
+	0x0010 50 6f 69 6e 74 65 72 5b 72 75 6e 74 69 6d 65 2e  Pointer[runtime.
+	0x0020 5f 64 65 66 65 72 5d 2c 20 2a 72 75 6e 74 69 6d  _defer], *runtim
+	0x0030 65 2e 5f 64 65 66 65 72 2c 20 2a 72 75 6e 74 69  e._defer, *runti
+	0x0040 6d 65 2e 5f 64 65 66 65 72 29 20 62 6f 6f 6c     me._defer) bool
+type:*func(*internal/runtime/atomic.Pointer[runtime._defer], *runtime._defer, *runtime._defer) bool SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 f3 d9 0a 50 08 08 08 36 00 00 00 00 00 00 00 00  ...P...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[runtime._defer], *runtime._defer, *runtime._defer) bool-+0
+	rel 48+8 t=R_ADDR type:func(*internal/runtime/atomic.Pointer[runtime._defer], *runtime._defer, *runtime._defer) bool+0
+type:func(*internal/runtime/atomic.Pointer[runtime._defer], *runtime._defer, *runtime._defer) bool SRODATA dupok size=88
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 c6 3f f5 38 02 08 08 33 00 00 00 00 00 00 00 00  .?.8...3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 03 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0050 00 00 00 00 00 00 00 00                          ........
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[runtime._defer], *runtime._defer, *runtime._defer) bool-+0
+	rel 44+4 t=RelocType(-32763) type:*func(*internal/runtime/atomic.Pointer[runtime._defer], *runtime._defer, *runtime._defer) bool+0
+	rel 56+8 t=R_ADDR type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 64+8 t=R_ADDR type:*runtime._defer+0
+	rel 72+8 t=R_ADDR type:*runtime._defer+0
+	rel 80+8 t=R_ADDR type:bool+0
+type:.namedata.*func(*atomic.Pointer[runtime._defer]) *runtime._defer- SRODATA dupok size=56
+	0x0000 00 36 2a 66 75 6e 63 28 2a 61 74 6f 6d 69 63 2e  .6*func(*atomic.
+	0x0010 50 6f 69 6e 74 65 72 5b 72 75 6e 74 69 6d 65 2e  Pointer[runtime.
+	0x0020 5f 64 65 66 65 72 5d 29 20 2a 72 75 6e 74 69 6d  _defer]) *runtim
+	0x0030 65 2e 5f 64 65 66 65 72                          e._defer
+type:*func(*internal/runtime/atomic.Pointer[runtime._defer]) *runtime._defer SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 b8 12 dc 3b 08 08 08 36 00 00 00 00 00 00 00 00  ...;...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[runtime._defer]) *runtime._defer-+0
+	rel 48+8 t=R_ADDR type:func(*internal/runtime/atomic.Pointer[runtime._defer]) *runtime._defer+0
+type:func(*internal/runtime/atomic.Pointer[runtime._defer]) *runtime._defer SRODATA dupok size=72
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 81 dc a6 82 02 08 08 33 00 00 00 00 00 00 00 00  .......3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 01 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00                          ........
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[runtime._defer]) *runtime._defer-+0
+	rel 44+4 t=RelocType(-32763) type:*func(*internal/runtime/atomic.Pointer[runtime._defer]) *runtime._defer+0
+	rel 56+8 t=R_ADDR type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 64+8 t=R_ADDR type:*runtime._defer+0
+type:.namedata.*func(*atomic.Pointer[runtime._defer], *runtime._defer)- SRODATA dupok size=57
+	0x0000 00 37 2a 66 75 6e 63 28 2a 61 74 6f 6d 69 63 2e  .7*func(*atomic.
+	0x0010 50 6f 69 6e 74 65 72 5b 72 75 6e 74 69 6d 65 2e  Pointer[runtime.
+	0x0020 5f 64 65 66 65 72 5d 2c 20 2a 72 75 6e 74 69 6d  _defer], *runtim
+	0x0030 65 2e 5f 64 65 66 65 72 29                       e._defer)
+type:*func(*internal/runtime/atomic.Pointer[runtime._defer], *runtime._defer) SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 a2 19 2f fa 08 08 08 36 00 00 00 00 00 00 00 00  ../....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[runtime._defer], *runtime._defer)-+0
+	rel 48+8 t=R_ADDR type:func(*internal/runtime/atomic.Pointer[runtime._defer], *runtime._defer)+0
+type:func(*internal/runtime/atomic.Pointer[runtime._defer], *runtime._defer) SRODATA dupok size=72
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 6a 25 ab 3e 02 08 08 33 00 00 00 00 00 00 00 00  j%.>...3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00                          ........
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[runtime._defer], *runtime._defer)-+0
+	rel 44+4 t=RelocType(-32763) type:*func(*internal/runtime/atomic.Pointer[runtime._defer], *runtime._defer)+0
+	rel 56+8 t=R_ADDR type:*internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 64+8 t=R_ADDR type:*runtime._defer+0
+type:.namedata.CompareAndSwap. SRODATA dupok size=16
+	0x0000 01 0e 43 6f 6d 70 61 72 65 41 6e 64 53 77 61 70  ..CompareAndSwap
+type:.namedata.*func(*runtime._defer, *runtime._defer) bool- SRODATA dupok size=46
+	0x0000 00 2c 2a 66 75 6e 63 28 2a 72 75 6e 74 69 6d 65  .,*func(*runtime
+	0x0010 2e 5f 64 65 66 65 72 2c 20 2a 72 75 6e 74 69 6d  ._defer, *runtim
+	0x0020 65 2e 5f 64 65 66 65 72 29 20 62 6f 6f 6c        e._defer) bool
+type:*func(*runtime._defer, *runtime._defer) bool SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 11 90 ef 69 08 08 08 36 00 00 00 00 00 00 00 00  ...i...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*runtime._defer, *runtime._defer) bool-+0
+	rel 48+8 t=R_ADDR type:func(*runtime._defer, *runtime._defer) bool+0
+type:func(*runtime._defer, *runtime._defer) bool SRODATA dupok size=80
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 cf 94 10 b1 02 08 08 33 00 00 00 00 00 00 00 00  .......3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 02 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*runtime._defer, *runtime._defer) bool-+0
+	rel 44+4 t=RelocType(-32763) type:*func(*runtime._defer, *runtime._defer) bool+0
+	rel 56+8 t=R_ADDR type:*runtime._defer+0
+	rel 64+8 t=R_ADDR type:*runtime._defer+0
+	rel 72+8 t=R_ADDR type:bool+0
+type:.namedata.CompareAndSwapNoWB. SRODATA dupok size=20
+	0x0000 01 12 43 6f 6d 70 61 72 65 41 6e 64 53 77 61 70  ..CompareAndSwap
+	0x0010 4e 6f 57 42                                      NoWB
+type:.namedata.Load. SRODATA dupok size=6
+	0x0000 01 04 4c 6f 61 64                                ..Load
+type:.namedata.*func() *runtime._defer- SRODATA dupok size=25
+	0x0000 00 17 2a 66 75 6e 63 28 29 20 2a 72 75 6e 74 69  ..*func() *runti
+	0x0010 6d 65 2e 5f 64 65 66 65 72                       me._defer
+type:*func() *runtime._defer SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 1f 14 df f3 08 08 08 36 00 00 00 00 00 00 00 00  .......6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func() *runtime._defer-+0
+	rel 48+8 t=R_ADDR type:func() *runtime._defer+0
+type:func() *runtime._defer SRODATA dupok size=64
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 72 99 92 b6 02 08 08 33 00 00 00 00 00 00 00 00  r......3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func() *runtime._defer-+0
+	rel 44+4 t=RelocType(-32763) type:*func() *runtime._defer+0
+	rel 56+8 t=R_ADDR type:*runtime._defer+0
+type:.namedata.Store. SRODATA dupok size=7
+	0x0000 01 05 53 74 6f 72 65                             ..Store
+type:.namedata.*func(*runtime._defer)- SRODATA dupok size=24
+	0x0000 00 16 2a 66 75 6e 63 28 2a 72 75 6e 74 69 6d 65  ..*func(*runtime
+	0x0010 2e 5f 64 65 66 65 72 29                          ._defer)
+type:*func(*runtime._defer) SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 94 b5 63 d9 08 08 08 36 00 00 00 00 00 00 00 00  ..c....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*runtime._defer)-+0
+	rel 48+8 t=R_ADDR type:func(*runtime._defer)+0
+type:func(*runtime._defer) SRODATA dupok size=64
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 41 b1 93 f7 02 08 08 33 00 00 00 00 00 00 00 00  A......3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*runtime._defer)-+0
+	rel 44+4 t=RelocType(-32763) type:*func(*runtime._defer)+0
+	rel 56+8 t=R_ADDR type:*runtime._defer+0
+type:.namedata.StoreNoWB. SRODATA dupok size=11
+	0x0000 01 09 53 74 6f 72 65 4e 6f 57 42                 ..StoreNoWB
+type:*internal/runtime/atomic.Pointer[runtime._defer] SRODATA dupok size=152
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 34 ab e5 dd 09 08 08 36 00 00 00 00 00 00 00 00  4......6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 05 00 05 00  ................
+	0x0040 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0050 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0060 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0070 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0080 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0090 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*atomic.Pointer[runtime._defer].+0
+	rel 48+8 t=R_ADDR type:internal/runtime/atomic.Pointer[runtime._defer]+0
+	rel 56+4 t=R_ADDROFF type:.importpath.internal/runtime/atomic.+0
+	rel 72+4 t=R_ADDROFF type:.namedata.CompareAndSwap.+0
+	rel 76+4 t=R_METHODOFF type:func(*runtime._defer, *runtime._defer) bool+0
+	rel 80+4 t=R_METHODOFF internal/runtime/atomic.(*Pointer[runtime._defer]).CompareAndSwap+0
+	rel 84+4 t=R_METHODOFF internal/runtime/atomic.(*Pointer[runtime._defer]).CompareAndSwap+0
+	rel 88+4 t=R_ADDROFF type:.namedata.CompareAndSwapNoWB.+0
+	rel 92+4 t=R_METHODOFF type:func(*runtime._defer, *runtime._defer) bool+0
+	rel 96+4 t=R_METHODOFF internal/runtime/atomic.(*Pointer[runtime._defer]).CompareAndSwapNoWB+0
+	rel 100+4 t=R_METHODOFF internal/runtime/atomic.(*Pointer[runtime._defer]).CompareAndSwapNoWB+0
+	rel 104+4 t=R_ADDROFF type:.namedata.Load.+0
+	rel 108+4 t=R_METHODOFF type:func() *runtime._defer+0
+	rel 112+4 t=R_METHODOFF internal/runtime/atomic.(*Pointer[runtime._defer]).Load+0
+	rel 116+4 t=R_METHODOFF internal/runtime/atomic.(*Pointer[runtime._defer]).Load+0
+	rel 120+4 t=R_ADDROFF type:.namedata.Store.+0
+	rel 124+4 t=R_METHODOFF type:func(*runtime._defer)+0
+	rel 128+4 t=R_METHODOFF internal/runtime/atomic.(*Pointer[runtime._defer]).Store+0
+	rel 132+4 t=R_METHODOFF internal/runtime/atomic.(*Pointer[runtime._defer]).Store+0
+	rel 136+4 t=R_ADDROFF type:.namedata.StoreNoWB.+0
+	rel 140+4 t=R_METHODOFF type:func(*runtime._defer)+0
+	rel 144+4 t=R_METHODOFF internal/runtime/atomic.(*Pointer[runtime._defer]).StoreNoWB+0
+	rel 148+4 t=R_METHODOFF internal/runtime/atomic.(*Pointer[runtime._defer]).StoreNoWB+0
+type:.namedata.*atomic.Pointer[os.dirInfo]. SRODATA dupok size=29
+	0x0000 01 1b 2a 61 74 6f 6d 69 63 2e 50 6f 69 6e 74 65  ..*atomic.Pointe
+	0x0010 72 5b 6f 73 2e 64 69 72 49 6e 66 6f 5d           r[os.dirInfo]
+type:.eqfunc.sync/atomic.Pointer[os.dirInfo] SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=R_ADDR type:.eq.sync/atomic.Pointer[os.dirInfo]+0
+runtime.memequal0·f SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=R_ADDR runtime.memequal0+0
+type:.namedata.*[0]*os.dirInfo- SRODATA dupok size=17
+	0x0000 00 0f 2a 5b 30 5d 2a 6f 73 2e 64 69 72 49 6e 66  ..*[0]*os.dirInf
+	0x0010 6f                                               o
+type:*[0]*os.dirInfo SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 a6 08 19 82 08 08 08 36 00 00 00 00 00 00 00 00  .......6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*[0]*os.dirInfo-+0
+	rel 48+8 t=R_ADDR type:[0]*os.dirInfo+0
+runtime.gcbits. SRODATA dupok size=0
+type:.namedata.*[]*os.dirInfo- SRODATA dupok size=16
+	0x0000 00 0e 2a 5b 5d 2a 6f 73 2e 64 69 72 49 6e 66 6f  ..*[]*os.dirInfo
+type:*[]*os.dirInfo SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 9d 8a 6c 8a 08 08 08 36 00 00 00 00 00 00 00 00  ..l....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*[]*os.dirInfo-+0
+	rel 48+8 t=R_ADDR type:[]*os.dirInfo+0
+type:[]*os.dirInfo SRODATA dupok size=56
+	0x0000 18 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 55 53 05 41 02 08 08 17 00 00 00 00 00 00 00 00  US.A............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*[]*os.dirInfo-+0
+	rel 44+4 t=RelocType(-32763) type:*[]*os.dirInfo+0
+	rel 48+8 t=R_ADDR type:*os.dirInfo+0
+type:[0]*os.dirInfo SRODATA dupok size=72
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 64 82 13 1a 0a 08 08 11 00 00 00 00 00 00 00 00  d...............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal0·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*[0]*os.dirInfo-+0
+	rel 44+4 t=RelocType(-32763) type:*[0]*os.dirInfo+0
+	rel 48+8 t=R_ADDR type:*os.dirInfo+0
+	rel 56+8 t=R_ADDR type:[]*os.dirInfo+0
+type:.importpath.sync/atomic. SRODATA dupok size=13
+	0x0000 00 0b 73 79 6e 63 2f 61 74 6f 6d 69 63           ..sync/atomic
+type:.namedata._- SRODATA dupok size=3
+	0x0000 00 01 5f                                         .._
+type:.namedata.v- SRODATA dupok size=3
+	0x0000 00 01 76                                         ..v
+type:sync/atomic.Pointer[os.dirInfo] SRODATA dupok size=168
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 96 c3 42 f6 07 08 08 19 00 00 00 00 00 00 00 00  ..B.............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 03 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00  ................
+	0x0050 00 00 00 00 00 00 00 00 58 00 00 00 00 00 00 00  ........X.......
+	0x0060 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0070 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0080 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0090 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x00a0 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR type:.eqfunc.sync/atomic.Pointer[os.dirInfo]+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*atomic.Pointer[os.dirInfo].+0
+	rel 44+4 t=R_ADDROFF type:*sync/atomic.Pointer[os.dirInfo]+0
+	rel 48+8 t=R_ADDR type:.importpath.sync/atomic.+0
+	rel 56+8 t=R_ADDR type:sync/atomic.Pointer[os.dirInfo]+96
+	rel 80+4 t=R_ADDROFF type:.importpath.sync/atomic.+0
+	rel 96+8 t=R_ADDR type:.namedata._-+0
+	rel 104+8 t=R_ADDR type:[0]*os.dirInfo+0
+	rel 120+8 t=R_ADDR type:.namedata._-+0
+	rel 128+8 t=R_ADDR type:sync/atomic.noCopy+0
+	rel 144+8 t=R_ADDR type:.namedata.v-+0
+	rel 152+8 t=R_ADDR type:unsafe.Pointer+0
+type:.namedata.*func(*atomic.Pointer[os.dirInfo], *os.dirInfo, *os.dirInfo) bool- SRODATA dupok size=67
+	0x0000 00 41 2a 66 75 6e 63 28 2a 61 74 6f 6d 69 63 2e  .A*func(*atomic.
+	0x0010 50 6f 69 6e 74 65 72 5b 6f 73 2e 64 69 72 49 6e  Pointer[os.dirIn
+	0x0020 66 6f 5d 2c 20 2a 6f 73 2e 64 69 72 49 6e 66 6f  fo], *os.dirInfo
+	0x0030 2c 20 2a 6f 73 2e 64 69 72 49 6e 66 6f 29 20 62  , *os.dirInfo) b
+	0x0040 6f 6f 6c                                         ool
+type:*func(*sync/atomic.Pointer[os.dirInfo], *os.dirInfo, *os.dirInfo) bool SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 fe 18 d0 29 08 08 08 36 00 00 00 00 00 00 00 00  ...)...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[os.dirInfo], *os.dirInfo, *os.dirInfo) bool-+0
+	rel 48+8 t=R_ADDR type:func(*sync/atomic.Pointer[os.dirInfo], *os.dirInfo, *os.dirInfo) bool+0
+type:func(*sync/atomic.Pointer[os.dirInfo], *os.dirInfo, *os.dirInfo) bool SRODATA dupok size=88
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 b9 bc ac c6 02 08 08 33 00 00 00 00 00 00 00 00  .......3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 03 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0050 00 00 00 00 00 00 00 00                          ........
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[os.dirInfo], *os.dirInfo, *os.dirInfo) bool-+0
+	rel 44+4 t=RelocType(-32763) type:*func(*sync/atomic.Pointer[os.dirInfo], *os.dirInfo, *os.dirInfo) bool+0
+	rel 56+8 t=R_ADDR type:*sync/atomic.Pointer[os.dirInfo]+0
+	rel 64+8 t=R_ADDR type:*os.dirInfo+0
+	rel 72+8 t=R_ADDR type:*os.dirInfo+0
+	rel 80+8 t=R_ADDR type:bool+0
+type:.namedata.*func(*atomic.Pointer[os.dirInfo]) *os.dirInfo- SRODATA dupok size=48
+	0x0000 00 2e 2a 66 75 6e 63 28 2a 61 74 6f 6d 69 63 2e  ..*func(*atomic.
+	0x0010 50 6f 69 6e 74 65 72 5b 6f 73 2e 64 69 72 49 6e  Pointer[os.dirIn
+	0x0020 66 6f 5d 29 20 2a 6f 73 2e 64 69 72 49 6e 66 6f  fo]) *os.dirInfo
+type:*func(*sync/atomic.Pointer[os.dirInfo]) *os.dirInfo SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 59 bb 31 13 08 08 08 36 00 00 00 00 00 00 00 00  Y.1....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[os.dirInfo]) *os.dirInfo-+0
+	rel 48+8 t=R_ADDR type:func(*sync/atomic.Pointer[os.dirInfo]) *os.dirInfo+0
+type:func(*sync/atomic.Pointer[os.dirInfo]) *os.dirInfo SRODATA dupok size=72
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 d5 d6 af 2f 02 08 08 33 00 00 00 00 00 00 00 00  .../...3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 01 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00                          ........
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[os.dirInfo]) *os.dirInfo-+0
+	rel 44+4 t=RelocType(-32763) type:*func(*sync/atomic.Pointer[os.dirInfo]) *os.dirInfo+0
+	rel 56+8 t=R_ADDR type:*sync/atomic.Pointer[os.dirInfo]+0
+	rel 64+8 t=R_ADDR type:*os.dirInfo+0
+type:.namedata.*func(*atomic.Pointer[os.dirInfo], *os.dirInfo)- SRODATA dupok size=49
+	0x0000 00 2f 2a 66 75 6e 63 28 2a 61 74 6f 6d 69 63 2e  ./*func(*atomic.
+	0x0010 50 6f 69 6e 74 65 72 5b 6f 73 2e 64 69 72 49 6e  Pointer[os.dirIn
+	0x0020 66 6f 5d 2c 20 2a 6f 73 2e 64 69 72 49 6e 66 6f  fo], *os.dirInfo
+	0x0030 29                                               )
+type:*func(*sync/atomic.Pointer[os.dirInfo], *os.dirInfo) SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 73 91 45 a4 08 08 08 36 00 00 00 00 00 00 00 00  s.E....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[os.dirInfo], *os.dirInfo)-+0
+	rel 48+8 t=R_ADDR type:func(*sync/atomic.Pointer[os.dirInfo], *os.dirInfo)+0
+type:func(*sync/atomic.Pointer[os.dirInfo], *os.dirInfo) SRODATA dupok size=72
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 a7 d9 da 27 02 08 08 33 00 00 00 00 00 00 00 00  ...'...3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00                          ........
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[os.dirInfo], *os.dirInfo)-+0
+	rel 44+4 t=RelocType(-32763) type:*func(*sync/atomic.Pointer[os.dirInfo], *os.dirInfo)+0
+	rel 56+8 t=R_ADDR type:*sync/atomic.Pointer[os.dirInfo]+0
+	rel 64+8 t=R_ADDR type:*os.dirInfo+0
+type:.namedata.*func(*atomic.Pointer[os.dirInfo], *os.dirInfo) *os.dirInfo- SRODATA dupok size=61
+	0x0000 00 3b 2a 66 75 6e 63 28 2a 61 74 6f 6d 69 63 2e  .;*func(*atomic.
+	0x0010 50 6f 69 6e 74 65 72 5b 6f 73 2e 64 69 72 49 6e  Pointer[os.dirIn
+	0x0020 66 6f 5d 2c 20 2a 6f 73 2e 64 69 72 49 6e 66 6f  fo], *os.dirInfo
+	0x0030 29 20 2a 6f 73 2e 64 69 72 49 6e 66 6f           ) *os.dirInfo
+type:*func(*sync/atomic.Pointer[os.dirInfo], *os.dirInfo) *os.dirInfo SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 46 0b cc 77 08 08 08 36 00 00 00 00 00 00 00 00  F..w...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[os.dirInfo], *os.dirInfo) *os.dirInfo-+0
+	rel 48+8 t=R_ADDR type:func(*sync/atomic.Pointer[os.dirInfo], *os.dirInfo) *os.dirInfo+0
+type:func(*sync/atomic.Pointer[os.dirInfo], *os.dirInfo) *os.dirInfo SRODATA dupok size=80
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 3a 47 9e 50 02 08 08 33 00 00 00 00 00 00 00 00  :G.P...3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 02 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*atomic.Pointer[os.dirInfo], *os.dirInfo) *os.dirInfo-+0
+	rel 44+4 t=RelocType(-32763) type:*func(*sync/atomic.Pointer[os.dirInfo], *os.dirInfo) *os.dirInfo+0
+	rel 56+8 t=R_ADDR type:*sync/atomic.Pointer[os.dirInfo]+0
+	rel 64+8 t=R_ADDR type:*os.dirInfo+0
+	rel 72+8 t=R_ADDR type:*os.dirInfo+0
+type:.namedata.*func(*os.dirInfo, *os.dirInfo) bool- SRODATA dupok size=38
+	0x0000 00 24 2a 66 75 6e 63 28 2a 6f 73 2e 64 69 72 49  .$*func(*os.dirI
+	0x0010 6e 66 6f 2c 20 2a 6f 73 2e 64 69 72 49 6e 66 6f  nfo, *os.dirInfo
+	0x0020 29 20 62 6f 6f 6c                                ) bool
+type:*func(*os.dirInfo, *os.dirInfo) bool SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 5e 6b 53 61 08 08 08 36 00 00 00 00 00 00 00 00  ^kSa...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*os.dirInfo, *os.dirInfo) bool-+0
+	rel 48+8 t=R_ADDR type:func(*os.dirInfo, *os.dirInfo) bool+0
+type:func(*os.dirInfo, *os.dirInfo) bool SRODATA dupok size=80
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 48 9c 04 10 02 08 08 33 00 00 00 00 00 00 00 00  H......3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 02 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*os.dirInfo, *os.dirInfo) bool-+0
+	rel 44+4 t=RelocType(-32763) type:*func(*os.dirInfo, *os.dirInfo) bool+0
+	rel 56+8 t=R_ADDR type:*os.dirInfo+0
+	rel 64+8 t=R_ADDR type:*os.dirInfo+0
+	rel 72+8 t=R_ADDR type:bool+0
+type:.namedata.*func() *os.dirInfo- SRODATA dupok size=21
+	0x0000 00 13 2a 66 75 6e 63 28 29 20 2a 6f 73 2e 64 69  ..*func() *os.di
+	0x0010 72 49 6e 66 6f                                   rInfo
+type:*func() *os.dirInfo SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 9f 33 b3 3d 08 08 08 36 00 00 00 00 00 00 00 00  .3.=...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func() *os.dirInfo-+0
+	rel 48+8 t=R_ADDR type:func() *os.dirInfo+0
+type:func() *os.dirInfo SRODATA dupok size=64
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 e2 f6 62 43 02 08 08 33 00 00 00 00 00 00 00 00  ..bC...3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func() *os.dirInfo-+0
+	rel 44+4 t=RelocType(-32763) type:*func() *os.dirInfo+0
+	rel 56+8 t=R_ADDR type:*os.dirInfo+0
+type:.namedata.*func(*os.dirInfo)- SRODATA dupok size=20
+	0x0000 00 12 2a 66 75 6e 63 28 2a 6f 73 2e 64 69 72 49  ..*func(*os.dirI
+	0x0010 6e 66 6f 29                                      nfo)
+type:*func(*os.dirInfo) SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 bc 37 80 49 08 08 08 36 00 00 00 00 00 00 00 00  .7.I...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*os.dirInfo)-+0
+	rel 48+8 t=R_ADDR type:func(*os.dirInfo)+0
+type:func(*os.dirInfo) SRODATA dupok size=64
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 0f ea 90 93 02 08 08 33 00 00 00 00 00 00 00 00  .......3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*os.dirInfo)-+0
+	rel 44+4 t=RelocType(-32763) type:*func(*os.dirInfo)+0
+	rel 56+8 t=R_ADDR type:*os.dirInfo+0
+type:.namedata.Swap. SRODATA dupok size=6
+	0x0000 01 04 53 77 61 70                                ..Swap
+type:.namedata.*func(*os.dirInfo) *os.dirInfo- SRODATA dupok size=32
+	0x0000 00 1e 2a 66 75 6e 63 28 2a 6f 73 2e 64 69 72 49  ..*func(*os.dirI
+	0x0010 6e 66 6f 29 20 2a 6f 73 2e 64 69 72 49 6e 66 6f  nfo) *os.dirInfo
+type:*func(*os.dirInfo) *os.dirInfo SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 ab 76 75 e5 08 08 08 36 00 00 00 00 00 00 00 00  .vu....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*os.dirInfo) *os.dirInfo-+0
+	rel 48+8 t=R_ADDR type:func(*os.dirInfo) *os.dirInfo+0
+type:func(*os.dirInfo) *os.dirInfo SRODATA dupok size=72
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 63 31 bc d9 02 08 08 33 00 00 00 00 00 00 00 00  c1.....3........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 01 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00                          ........
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*func(*os.dirInfo) *os.dirInfo-+0
+	rel 44+4 t=RelocType(-32763) type:*func(*os.dirInfo) *os.dirInfo+0
+	rel 56+8 t=R_ADDR type:*os.dirInfo+0
+	rel 64+8 t=R_ADDR type:*os.dirInfo+0
+type:*sync/atomic.Pointer[os.dirInfo] SRODATA dupok size=136
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 53 db c0 f4 09 08 08 36 00 00 00 00 00 00 00 00  S......6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 04 00 04 00  ................
+	0x0040 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0050 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0060 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0070 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0080 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*atomic.Pointer[os.dirInfo].+0
+	rel 48+8 t=R_ADDR type:sync/atomic.Pointer[os.dirInfo]+0
+	rel 56+4 t=R_ADDROFF type:.importpath.sync/atomic.+0
+	rel 72+4 t=R_ADDROFF type:.namedata.CompareAndSwap.+0
+	rel 76+4 t=R_METHODOFF type:func(*os.dirInfo, *os.dirInfo) bool+0
+	rel 80+4 t=R_METHODOFF sync/atomic.(*Pointer[os.dirInfo]).CompareAndSwap+0
+	rel 84+4 t=R_METHODOFF sync/atomic.(*Pointer[os.dirInfo]).CompareAndSwap+0
+	rel 88+4 t=R_ADDROFF type:.namedata.Load.+0
+	rel 92+4 t=R_METHODOFF type:func() *os.dirInfo+0
+	rel 96+4 t=R_METHODOFF sync/atomic.(*Pointer[os.dirInfo]).Load+0
+	rel 100+4 t=R_METHODOFF sync/atomic.(*Pointer[os.dirInfo]).Load+0
+	rel 104+4 t=R_ADDROFF type:.namedata.Store.+0
+	rel 108+4 t=R_METHODOFF type:func(*os.dirInfo)+0
+	rel 112+4 t=R_METHODOFF sync/atomic.(*Pointer[os.dirInfo]).Store+0
+	rel 116+4 t=R_METHODOFF sync/atomic.(*Pointer[os.dirInfo]).Store+0
+	rel 120+4 t=R_ADDROFF type:.namedata.Swap.+0
+	rel 124+4 t=R_METHODOFF type:func(*os.dirInfo) *os.dirInfo+0
+	rel 128+4 t=R_METHODOFF sync/atomic.(*Pointer[os.dirInfo]).Swap+0
+	rel 132+4 t=R_METHODOFF sync/atomic.(*Pointer[os.dirInfo]).Swap+0
+go:string."=== Stack Growth Demonstration ===\n" SRODATA dupok size=35
+	0x0000 3d 3d 3d 20 53 74 61 63 6b 20 47 72 6f 77 74 68  === Stack Growth
+	0x0010 20 44 65 6d 6f 6e 73 74 72 61 74 69 6f 6e 20 3d   Demonstration =
+	0x0020 3d 3d 0a                                         ==.
+go:string."Recursive" SRODATA dupok size=9
+	0x0000 52 65 63 75 72 73 69 76 65                       Recursive
+go:string."%s (depth %d): Stack usage pattern\n" SRODATA dupok size=35
+	0x0000 25 73 20 28 64 65 70 74 68 20 25 64 29 3a 20 53  %s (depth %d): S
+	0x0010 74 61 63 6b 20 75 73 61 67 65 20 70 61 74 74 65  tack usage patte
+	0x0020 72 6e 0a                                         rn.
+go:string."  Stack in use: %d KB\n" SRODATA dupok size=22
+	0x0000 20 20 53 74 61 63 6b 20 69 6e 20 75 73 65 3a 20    Stack in use: 
+	0x0010 25 64 20 4b 42 0a                                %d KB.
+go:string."  Stack from system: %d KB\n" SRODATA dupok size=27
+	0x0000 20 20 53 74 61 63 6b 20 66 72 6f 6d 20 73 79 73    Stack from sys
+	0x0010 74 65 6d 3a 20 25 64 20 4b 42 0a                 tem: %d KB.
+go:string."Initial" SRODATA dupok size=7
+	0x0000 49 6e 69 74 69 61 6c                             Initial
+runtime.nilinterequal·f SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=R_ADDR runtime.nilinterequal+0
+type:.namedata.*[1]interface {}- SRODATA dupok size=18
+	0x0000 00 10 2a 5b 31 5d 69 6e 74 65 72 66 61 63 65 20  ..*[1]interface 
+	0x0010 7b 7d                                            {}
+type:*[1]interface {} SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 73 3b a6 1c 08 08 08 36 00 00 00 00 00 00 00 00  s;.....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*[1]interface {}-+0
+	rel 48+8 t=R_ADDR type:[1]interface {}+0
+runtime.gcbits.0200000000000000 SRODATA dupok size=8
+	0x0000 02 00 00 00 00 00 00 00                          ........
+type:[1]interface {} SRODATA dupok size=72
+	0x0000 10 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00  ................
+	0x0010 ea 37 5e 5e 02 08 08 11 00 00 00 00 00 00 00 00  .7^^............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 01 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.nilinterequal·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0200000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*[1]interface {}-+0
+	rel 44+4 t=RelocType(-32763) type:*[1]interface {}+0
+	rel 48+8 t=R_ADDR type:interface {}+0
+	rel 56+8 t=R_ADDR type:[]interface {}+0
+type:.eqfunc.[2]interface {} SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=R_ADDR type:.eq.[2]interface {}+0
+type:.namedata.*[2]interface {}- SRODATA dupok size=18
+	0x0000 00 10 2a 5b 32 5d 69 6e 74 65 72 66 61 63 65 20  ..*[2]interface 
+	0x0010 7b 7d                                            {}
+type:*[2]interface {} SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 2a 46 a7 a3 08 08 08 36 00 00 00 00 00 00 00 00  *F.....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR runtime.memequal64·f+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0100000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*[2]interface {}-+0
+	rel 48+8 t=R_ADDR type:[2]interface {}+0
+runtime.gcbits.0a00000000000000 SRODATA dupok size=8
+	0x0000 0a 00 00 00 00 00 00 00                          ........
+type:[2]interface {} SRODATA dupok size=72
+	0x0000 20 00 00 00 00 00 00 00 20 00 00 00 00 00 00 00   ....... .......
+	0x0010 7a 04 98 81 02 08 08 11 00 00 00 00 00 00 00 00  z...............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 02 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=R_ADDR type:.eqfunc.[2]interface {}+0
+	rel 32+8 t=R_ADDR runtime.gcbits.0a00000000000000+0
+	rel 40+4 t=R_ADDROFF type:.namedata.*[2]interface {}-+0
+	rel 44+4 t=RelocType(-32763) type:*[2]interface {}+0
+	rel 48+8 t=R_ADDR type:interface {}+0
+	rel 56+8 t=R_ADDR type:[]interface {}+0
+main.main.func1·f SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=R_ADDR main.main.func1+0
+runtime.gosched_m·f SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=R_ADDR runtime.gosched_m+0
+gclocals·FzY36IO2mY0y4dZ1+Izd/w== SRODATA dupok size=8
+	0x0000 01 00 00 00 00 00 00 00                          ........
+main.recursiveFunction.arginfo1 SRODATA static dupok size=5
+	0x0000 00 08 08 08 ff                                   .....
+main.recursiveFunction.argliveinfo SRODATA static dupok size=3
+	0x0000 00 00 02                                         ...
+gclocals·cr247GbaOYSIwcehrHtzUg== SRODATA dupok size=13
+	0x0000 05 00 00 00 01 00 00 00 01 00 00 00 00           .............
+gclocals·xwNAgecAfi4RP9dCeVDjEQ== SRODATA dupok size=13
+	0x0000 05 00 00 00 08 00 00 00 00 a0 00 08 02           .............
+main.showStackInfo.stkobj SRODATA static size=56
+	0x0000 03 00 00 00 00 00 00 00 c0 ff ff ff 10 00 00 00  ................
+	0x0010 10 00 00 00 00 00 00 00 d0 ff ff ff 10 00 00 00  ................
+	0x0020 10 00 00 00 00 00 00 00 e0 ff ff ff 20 00 00 00  ............ ...
+	0x0030 20 00 00 00 00 00 00 00                           .......
+	rel 20+4 t=R_ADDROFF runtime.gcbits.0200000000000000+0
+	rel 36+4 t=R_ADDROFF runtime.gcbits.0200000000000000+0
+	rel 52+4 t=R_ADDROFF runtime.gcbits.0a00000000000000+0
+main.showStackInfo.arginfo1 SRODATA static dupok size=9
+	0x0000 fe 00 08 08 08 fd 10 08 ff                       .........
+main.showStackInfo.argliveinfo SRODATA static dupok size=2
+	0x0000 00 00                                            ..
+gclocals·rJbr+btbFJy3NLIRCgNSZQ== SRODATA dupok size=10
+	0x0000 02 00 00 00 02 00 00 00 03 00                    ..........
+gclocals·ISb46fRPFoZ9pIfykFK/kQ== SRODATA dupok size=8
+	0x0000 02 00 00 00 00 00 00 00                          ........
+type:.eq.sync/atomic.Pointer[os.dirInfo].arginfo1 SRODATA static dupok size=3
+	0x0000 08 08 ff                                         ...
+type:.eq.sync/atomic.Pointer[os.dirInfo].argliveinfo SRODATA static dupok size=2
+	0x0000 00 00                                            ..
+type:.eq.[2]interface {}.arginfo1 SRODATA static dupok size=3
+	0x0000 08 08 ff                                         ...
+type:.eq.[2]interface {}.argliveinfo SRODATA static dupok size=2
+	0x0000 00 00                                            ..

@@ -9,27 +9,6 @@ import (
 	"sync/atomic"
 )
 
-// Simplest example of goroutines.
-// Read more in "Efficient Go"; Example 4-5.
-
-func anotherFunction(arg1 string) { /*...*/ }
-
-func function() {
-	// Scope of the current goroutine.
-	// ...
-
-	go func() {
-		// This scope will run concurrently any moment now.
-		// ...
-	}()
-
-	// anotherFunction will run concurrently any moment now.
-	go anotherFunction("argument1")
-
-	// After our function ends, two goroutines we started can still run.
-	return
-}
-
 var randInt64 = func() int64 {
 	return rand.Int63()
 }
@@ -116,3 +95,5 @@ func sharingWithShardedSpace() (sum int64) {
 	}
 	return sum
 }
+
+// go test -bench=. -benchmem
