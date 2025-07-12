@@ -1,0 +1,10 @@
+github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
+github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/efficientgo/core v1.0.0-rc.2 h1:7j62qHLnrZqO3V3UA0AqOGd5d5aXV3AX6m/NZBHp78I=
+github.com/efficientgo/core v1.0.0-rc.2/go.mod h1:FfGdkzWarkuzOlY04VY+bGfb1lWrjaL6x/GLcQ4vJps=
+github.com/efficientgo/examples v0.0.0-20240107094241-3b473a0075bd h1:CZfMcxvR+WcN/4MLGU0s6UnECFWjU2KzW7MX1GMtsUQ=
+github.com/efficientgo/examples v0.0.0-20240107094241-3b473a0075bd/go.mod h1:bdC/hHhHescWzUA+ZhT2WGQmK3rANiPho/RRZbW1Upw=
+github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
+github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
+golang.org/x/sys v0.34.0 h1:H5Y5sJ2L2JRdyv7ROF1he/lPdvFsd0mJHFw2ThKHxLA=
+golang.org/x/sys v0.34.0/go.mod h1:BJP2sWEmIv4KK5OTEluFJCKSidICx8ciO85XgH3Ak8k=
