@@ -1,0 +1,181 @@
+# command-line-arguments
+./arguments.go:3:6: can inline passByValue
+./arguments.go:8:6: can inline main
+./arguments.go:11:13: inlining call to passByValue
+main.passByValue STEXT size=80 args=0x28 locals=0x18 funcid=0x0 align=0x0
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	TEXT	main.passByValue(SB), ABIInternal, $32-40
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	MOVD	16(g), R16
+	0x0004 00004 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	PCDATA	$0, $-2
+	0x0004 00004 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	CMP	R16, RSP
+	0x0008 00008 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	BLS	64
+	0x000c 00012 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	PCDATA	$0, $-1
+	0x000c 00012 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	MOVD.W	R30, -32(RSP)
+	0x0010 00016 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	MOVD	R29, -8(RSP)
+	0x0014 00020 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	SUB	$8, RSP, R29
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	FUNCDATA	$0, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	FUNCDATA	$1, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	FUNCDATA	$5, main.passByValue.arginfo1(SB)
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:4)	MOVD	$100, R0
+	0x001c 00028 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:4)	MOVD	R0, main.a(FP)
+	0x0020 00032 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:5)	PCDATA	$1, $0
+	0x0020 00032 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:5)	CALL	runtime.printlock(SB)
+	0x0024 00036 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:5)	MOVD	$main.a(FP), R0
+	0x0028 00040 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:5)	CALL	runtime.printpointer(SB)
+	0x002c 00044 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:5)	CALL	runtime.printnl(SB)
+	0x0030 00048 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:5)	CALL	runtime.printunlock(SB)
+	0x0034 00052 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:6)	LDP	-8(RSP), (R29, R30)
+	0x0038 00056 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:6)	ADD	$32, RSP
+	0x003c 00060 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:6)	RET	(R30)
+	0x0040 00064 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:6)	NOP
+	0x0040 00064 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	PCDATA	$1, $-1
+	0x0040 00064 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	PCDATA	$0, $-2
+	0x0040 00064 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	MOVD	R30, R3
+	0x0044 00068 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	CALL	runtime.morestack_noctxt(SB)
+	0x0048 00072 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	PCDATA	$0, $-1
+	0x0048 00072 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:3)	JMP	0
+	0x0000 90 0b 40 f9 ff 63 30 eb c9 01 00 54 fe 0f 1e f8  ..@..c0....T....
+	0x0010 fd 83 1f f8 fd 23 00 d1 80 0c 80 d2 e0 17 00 f9  .....#..........
+	0x0020 00 00 00 94 e0 a3 00 91 00 00 00 94 00 00 00 94  ................
+	0x0030 00 00 00 94 fd fb 7f a9 ff 83 00 91 c0 03 5f d6  .............._.
+	0x0040 e3 03 1e aa 00 00 00 94 ee ff ff 17 00 00 00 00  ................
+	rel 32+4 t=9 runtime.printlock+0
+	rel 40+4 t=9 runtime.printpointer+0
+	rel 44+4 t=9 runtime.printnl+0
+	rel 48+4 t=9 runtime.printunlock+0
+	rel 68+4 t=9 runtime.morestack_noctxt+0
+main.main STEXT size=192 args=0x0 locals=0x68 funcid=0x0 align=0x0
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	TEXT	main.main(SB), ABIInternal, $112-0
+	0x0000 00000 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	MOVD	16(g), R16
+	0x0004 00004 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	PCDATA	$0, $-2
+	0x0004 00004 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	CMP	R16, RSP
+	0x0008 00008 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	BLS	176
+	0x000c 00012 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	PCDATA	$0, $-1
+	0x000c 00012 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	MOVD.W	R30, -112(RSP)
+	0x0010 00016 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	MOVD	R29, -8(RSP)
+	0x0014 00020 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	SUB	$8, RSP, R29
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	FUNCDATA	$0, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	FUNCDATA	$1, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	PCDATA	$0, $-3
+	0x0018 00024 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:10)	LDP	main..stmp_0+16(SB), (R0, R1)
+	0x0024 00036 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:10)	PCDATA	$0, $-4
+	0x0024 00036 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:10)	LDP	main..stmp_0(SB), (R2, R3)
+	0x0030 00048 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:10)	PCDATA	$0, $-1
+	0x0030 00048 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:10)	STP	(R2, R3), main.arr-80(SP)
+	0x0034 00052 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:10)	STP	(R0, R1), main.arr-64(SP)
+	0x0038 00056 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:10)	MOVD	$5, R0
+	0x003c 00060 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:10)	MOVD	R0, main.arr-48(SP)
+	0x0040 00064 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:11)	LDP	main.arr-64(SP), (R0, R1)
+	0x0044 00068 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:11)	LDP	main.arr-80(SP), (R2, R3)
+	0x0048 00072 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:11)	STP	(R2, R3), main.a-40(SP)
+	0x004c 00076 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:11)	STP	(R0, R1), main.a-24(SP)
+	0x0050 00080 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:11)	MOVD	main.arr-48(SP), R0
+	0x0054 00084 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:11)	MOVD	R0, main.a-8(SP)
+	0x0058 00088 (<unknown line number>)	NOP
+	0x0058 00088 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:4)	MOVD	$100, R0
+	0x005c 00092 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:4)	MOVD	R0, main.a-40(SP)
+	0x0060 00096 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:5)	PCDATA	$1, $0
+	0x0060 00096 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:5)	CALL	runtime.printlock(SB)
+	0x0064 00100 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:5)	MOVD	$main.a-40(SP), R0
+	0x0068 00104 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:5)	CALL	runtime.printpointer(SB)
+	0x006c 00108 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:5)	CALL	runtime.printnl(SB)
+	0x0070 00112 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:5)	CALL	runtime.printunlock(SB)
+	0x0074 00116 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:13)	MOVD	main.arr-80(SP), R0
+	0x0078 00120 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:13)	MOVD	R0, main..autotmp_5-88(SP)
+	0x007c 00124 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:13)	CALL	runtime.printlock(SB)
+	0x0080 00128 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:13)	MOVD	main..autotmp_5-88(SP), R0
+	0x0084 00132 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:13)	CALL	runtime.printint(SB)
+	0x0088 00136 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:13)	CALL	runtime.printnl(SB)
+	0x008c 00140 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:13)	CALL	runtime.printunlock(SB)
+	0x0090 00144 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:14)	CALL	runtime.printlock(SB)
+	0x0094 00148 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:14)	MOVD	$main.arr-80(SP), R0
+	0x0098 00152 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:14)	CALL	runtime.printpointer(SB)
+	0x009c 00156 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:14)	CALL	runtime.printnl(SB)
+	0x00a0 00160 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:14)	CALL	runtime.printunlock(SB)
+	0x00a4 00164 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:15)	LDP	-8(RSP), (R29, R30)
+	0x00a8 00168 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:15)	ADD	$112, RSP
+	0x00ac 00172 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:15)	RET	(R30)
+	0x00b0 00176 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:15)	NOP
+	0x00b0 00176 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	PCDATA	$1, $-1
+	0x00b0 00176 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	PCDATA	$0, $-2
+	0x00b0 00176 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	MOVD	R30, R3
+	0x00b4 00180 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	CALL	runtime.morestack_noctxt(SB)
+	0x00b8 00184 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	PCDATA	$0, $-1
+	0x00b8 00184 (/Users/g2-nhat.nguyen-dev/GolandProjects/go-advanced/pkg/memoryallocation/arguments.go:8)	JMP	0
+	0x0000 90 0b 40 f9 ff 63 30 eb 49 05 00 54 fe 0f 19 f8  ..@..c0.I..T....
+	0x0010 fd 83 1f f8 fd 23 00 d1 1b 00 00 90 7b 03 00 91  .....#......{...
+	0x0020 60 07 40 a9 1b 00 00 90 7b 03 00 91 62 0f 40 a9  `.@.....{...b.@.
+	0x0030 e2 8f 01 a9 e0 87 02 a9 a0 00 80 d2 e0 1f 00 f9  ................
+	0x0040 e0 87 42 a9 e2 8f 41 a9 e2 0f 04 a9 e0 07 05 a9  ..B...A.........
+	0x0050 e0 1f 40 f9 e0 33 00 f9 80 0c 80 d2 e0 23 00 f9  ..@..3.......#..
+	0x0060 00 00 00 94 e0 03 01 91 00 00 00 94 00 00 00 94  ................
+	0x0070 00 00 00 94 e0 0f 40 f9 e0 0b 00 f9 00 00 00 94  ......@.........
+	0x0080 e0 0b 40 f9 00 00 00 94 00 00 00 94 00 00 00 94  ..@.............
+	0x0090 00 00 00 94 e0 63 00 91 00 00 00 94 00 00 00 94  .....c..........
+	0x00a0 00 00 00 94 fd fb 7f a9 ff c3 01 91 c0 03 5f d6  .............._.
+	0x00b0 e3 03 1e aa 00 00 00 94 d2 ff ff 17 00 00 00 00  ................
+	rel 24+8 t=3 main..stmp_0+16
+	rel 36+8 t=3 main..stmp_0+0
+	rel 96+4 t=9 runtime.printlock+0
+	rel 104+4 t=9 runtime.printpointer+0
+	rel 108+4 t=9 runtime.printnl+0
+	rel 112+4 t=9 runtime.printunlock+0
+	rel 124+4 t=9 runtime.printlock+0
+	rel 132+4 t=9 runtime.printint+0
+	rel 136+4 t=9 runtime.printnl+0
+	rel 140+4 t=9 runtime.printunlock+0
+	rel 144+4 t=9 runtime.printlock+0
+	rel 152+4 t=9 runtime.printpointer+0
+	rel 156+4 t=9 runtime.printnl+0
+	rel 160+4 t=9 runtime.printunlock+0
+	rel 180+4 t=9 runtime.morestack_noctxt+0
+go:cuinfo.producer.main SDWARFCUINFO dupok size=0
+	0x0000 2d 73 68 61 72 65 64 20 72 65 67 61 62 69        -shared regabi
+go:cuinfo.packagename.main SDWARFCUINFO dupok size=0
+	0x0000 6d 61 69 6e                                      main
+go:info.main.passByValue$abstract SDWARFABSFCN dupok size=29
+	0x0000 05 6d 61 69 6e 2e 70 61 73 73 42 79 56 61 6c 75  .main.passByValu
+	0x0010 65 00 01 01 13 61 00 00 00 00 00 00 00           e....a.......
+	rel 24+4 t=31 go:info.[5]int+0
+main..inittask SNOPTRDATA size=24
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 00 00 00                          ........
+main..stmp_0 SRODATA static size=40
+	0x0000 01 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00  ................
+	0x0010 03 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00  ................
+	0x0020 05 00 00 00 00 00 00 00                          ........
+type:.eqfunc40 SRODATA dupok size=16
+	0x0000 00 00 00 00 00 00 00 00 28 00 00 00 00 00 00 00  ........(.......
+	rel 0+8 t=1 runtime.memequal_varlen+0
+runtime.memequal64·f SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 runtime.memequal64+0
+runtime.gcbits.0100000000000000 SRODATA dupok size=8
+	0x0000 01 00 00 00 00 00 00 00                          ........
+type:.namedata.*[5]int- SRODATA dupok size=9
+	0x0000 00 07 2a 5b 35 5d 69 6e 74                       ..*[5]int
+type:*[5]int SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 d2 90 a4 99 08 08 08 36 00 00 00 00 00 00 00 00  .......6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.memequal64·f+0
+	rel 32+8 t=1 runtime.gcbits.0100000000000000+0
+	rel 40+4 t=5 type:.namedata.*[5]int-+0
+	rel 48+8 t=1 type:[5]int+0
+runtime.gcbits. SRODATA dupok size=0
+type:[5]int SRODATA dupok size=72
+	0x0000 28 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  (...............
+	0x0010 82 ad 93 3d 0a 08 08 11 00 00 00 00 00 00 00 00  ...=............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 05 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 type:.eqfunc40+0
+	rel 32+8 t=1 runtime.gcbits.+0
+	rel 40+4 t=5 type:.namedata.*[5]int-+0
+	rel 44+4 t=-32763 type:*[5]int+0
+	rel 48+8 t=1 type:int+0
+	rel 56+8 t=1 type:[]int+0
+gclocals·g2BeySu+wFnoycgXfElmcg== SRODATA dupok size=8
+	0x0000 01 00 00 00 00 00 00 00                          ........
+main.passByValue.arginfo1 SRODATA static dupok size=13
+	0x0000 fe 00 08 08 08 10 08 18 08 20 08 fd ff           ......... ...

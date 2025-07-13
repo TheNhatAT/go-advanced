@@ -2,7 +2,7 @@ package main
 
 import "time"
 
-func main() {
+func main_1() {
 	println("hello world")
 	//go sampleGoroutine()
 	//go sampleGoroutine()
