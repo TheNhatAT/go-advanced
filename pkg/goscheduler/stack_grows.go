@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	debug.SetGCPercent(-1) // Disable GC for clearer example
+	debug.SetGCPercent(-1) // Disable gc for clearer example
 
 	fmt.Printf("=== Stack Growth Demonstration ===\n")
 
