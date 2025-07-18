@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus:v2.36.2
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prom.yaml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+
+volumes:
+  prometheus-data:

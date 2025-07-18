@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: "local"
+    scrape_interval: "5s"
+    static_configs:
+      - targets: ["10.68.0.243:8484"] # using the IP address of local machine (in Wifi network)

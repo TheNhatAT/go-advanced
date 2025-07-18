@@ -23,8 +23,7 @@ const XTimes = 100
 
 func Prepare() { fmt.Println("initializing operation!") }
 
-// nolint
-func doOperation() error {
+func DoOperation() error {
 	// Do some dummy, randomized heavy work (both in terms of latency, CPU and memory usage).
 	alloc := make([]byte, 1e6)
 	for i := 0; i < int(rand.Float64()*100); i++ {
@@ -97,7 +96,7 @@ func doInSpan(ctx context.Context, name string, fn func(context.Context) error) 
 
 func TearDown() { fmt.Println("closing operation!") }
 
-func errorType(err error) string {
+func ErrorType(err error) string {
 	if err != nil {
 		if err.Error() == "error first" {
 			return "error1"
@@ -107,7 +106,7 @@ func errorType(err error) string {
 	return ""
 }
 
-func printPrometheusMetrics(reg prometheus.Gatherer) {
+func PrintPrometheusMetrics(reg prometheus.Gatherer) {
 	rec := httptest.NewRecorder()
 	promhttp.HandlerFor(reg, promhttp.HandlerOpts{DisableCompression: true, EnableOpenMetrics: true}).ServeHTTP(rec, &http.Request{})
 	if rec.Code != 200 {
