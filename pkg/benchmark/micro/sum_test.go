@@ -1,0 +1,48 @@
+package micro
+
+import "testing"
+
+// options cli for running benchmarks:
+// $ go test -run '^$' -bench '^BenchmarkSum$' -> default options
+// $ go test -run '^$' -bench '^BenchmarkSum$' -benchtime 10s -> for specific time duration
+// $ go test -run '^$' -bench '^BenchmarkSum$' -benchtime 100x -> for specific number of iterations
+// $ go test -run '^$' -bench '^BenchmarkSum$' -benchtime 1s -count 5 -> for calculate variance between runs
+// one line shell command to run benchmark:
+/**
+export ver=v1 && \
+	go test -run '^$' -bench '^BenchmarkSum$' -benchtime 10s -count 6 \
+		-cpu 4 \
+		-benchmem \
+		-memprofile=./benchmarkresult/${ver}.mem.pprof -cpuprofile=./benchmarkresult/${ver}.cpu.pprof \
+	| tee ./benchmarkresult/${ver}.txt
+*/
+/**
+using benchstat for visualization:
+$ gvm use go1.24.1
+$ benchstat ./pkg/benchmark/micro/benchmarkresult/v1.txt
+*/
+func BenchmarkSum(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_, _ = Sum("testdata/test.2000000.txt")
+	}
+}
+
+/**
+export ver=v2 && \
+	go test -run '^$' -bench '^BenchmarkSum2' -benchtime 10s -count 6 \
+		-cpu 4 \
+		-benchmem \
+		-memprofile=./benchmarkresult/${ver}.mem.pprof -cpuprofile=./benchmarkresult/${ver}.cpu.pprof \
+	| tee ./benchmarkresult/${ver}.txt
+*/
+// after benchmark, for running benchstat, go into v2.txt and rename the BenchmarkSum2 -> BenchmarkSum
+/**
+using benchstat for visualization:
+$ gvm use go1.24.1
+$ benchstat ./pkg/benchmark/micro/benchmarkresult/v1.txt ./pkg/benchmark/micro/benchmarkresult/v2.txt
+*/
+func BenchmarkSum2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_, _ = Sum2("testdata/test.2000000.txt")
+	}
+}

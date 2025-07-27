@@ -1,0 +1,11 @@
+goos: darwin
+goarch: arm64
+pkg: go-advanced/pkg/benchmark/micro
+BenchmarkSum-4   	     322	  36918007 ns/op	 7201113 B/op	       5 allocs/op
+BenchmarkSum-4   	     331	  36196143 ns/op	 7201115 B/op	       5 allocs/op
+BenchmarkSum-4   	     331	  36564244 ns/op	 7201121 B/op	       5 allocs/op
+BenchmarkSum-4   	     331	  36473547 ns/op	 7201115 B/op	       5 allocs/op
+BenchmarkSum-4   	     324	  36468617 ns/op	 7201114 B/op	       5 allocs/op
+BenchmarkSum-4   	     328	  36450625 ns/op	 7201114 B/op	       5 allocs/op
+PASS
+ok  	go-advanced/pkg/benchmark/micro	94.031s
