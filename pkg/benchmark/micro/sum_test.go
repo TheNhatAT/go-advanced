@@ -1,6 +1,9 @@
 package micro
 
-import "testing"
+import (
+	"github.com/efficientgo/core/testutil"
+	"testing"
+)
 
 // options cli for running benchmarks:
 // $ go test -run '^$' -bench '^BenchmarkSum$' -> default options
@@ -44,5 +47,27 @@ $ benchstat ./pkg/benchmark/micro/benchmarkresult/v1.txt ./pkg/benchmark/micro/b
 func BenchmarkSum2(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		_, _ = Sum2("testdata/test.2000000.txt")
+	}
+}
+
+// For correctness of the benchmark, we should use testutil.TB interface.
+// unittest
+func TestBenchmarkSum_unittest(t *testing.T) {
+	benchmarkSum(testutil.NewTB(t))
+}
+
+// benchmark
+func BenchmarkSum_benchmark(b *testing.B) {
+	benchmarkSum(testutil.NewTB(b))
+}
+
+func benchmarkSum(tb testutil.TB) {
+	for i := 0; i < tb.N(); i++ {
+		ret, err := Sum("testdata/test.2000000.txt")
+		testutil.Ok(tb, err)
+		if !tb.IsBenchmark() {
+			// More expensive result checks can be here.
+			testutil.Equals(tb, int64(6221600000), ret)
+		}
 	}
 }
