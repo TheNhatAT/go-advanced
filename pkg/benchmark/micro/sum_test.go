@@ -71,3 +71,27 @@ func benchmarkSum(tb testutil.TB) {
 		}
 	}
 }
+
+// example of well-documented benchmark
+//
+// BenchmarkSum assesses `Sum` function.
+// NOTE(bwplotka): Test it with a maximum of 4 CPU cores, given we don't allocate
+// more in our production containers.
+//
+// Recommended run options:
+/*
+export ver=v1 && go test \
+	-run '^$' -bench '^BenchmarkSum$' \
+	-benchtime 10s -count 6 -cpu 4 -benchmem \
+	-memprofile=${ver}.mem.pprof -cpuprofile=${ver}.cpu.pprof \
+| tee ${ver}.txt
+*/
+func BenchmarkSum_well_document(b *testing.B) {
+	// Create 7.55 MB file with 2 million lines.
+	fn := "testdata/test.2000000.txt"
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_, err := Sum(fn)
+		testutil.Ok(b, err)
+	}
+}
