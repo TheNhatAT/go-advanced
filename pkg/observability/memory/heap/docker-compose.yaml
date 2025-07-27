@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  memory-app:
+    build:
+      context: ../../../../
+      dockerfile: pkg/observability/memory/heap/Dockerfile
+    platform: linux/amd64
+    ports:
+      - "8484:8484"
+  prometheus:
+    image: prom/prometheus:v2.36.2
+    volumes:
+      - ./prom.yaml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - "9090:9090"
+    depends_on:
+      - memory-app
