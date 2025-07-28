@@ -1,6 +1,7 @@
 package micro
 
 import (
+	"fmt"
 	"github.com/efficientgo/core/testutil"
 	"testing"
 )
@@ -93,5 +94,28 @@ func BenchmarkSum_well_document(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		_, err := Sum(fn)
 		testutil.Ok(b, err)
+	}
+}
+
+// example of table tests for different input sizes
+func BenchmarkSum_table_test(b *testing.B) {
+	for _, tcase := range []struct {
+		numLines int
+	}{
+		{numLines: 0},
+		{numLines: 1e2},
+		{numLines: 1e4},
+		{numLines: 1e6},
+		{numLines: 2e6},
+	} {
+		b.Run(fmt.Sprintf("lines-%d", tcase.numLines), func(b *testing.B) {
+			b.ReportAllocs() // go test ignores any benchmark methods outside b.Run => remember to repeat them here
+			//fn := lazyCreateTestInput(tb, tcase.numLines)
+			b.ResetTimer()
+			for i := 0; i < b.N; i++ {
+				_, err := Sum("fn")
+				testutil.Ok(b, err)
+			}
+		})
 	}
 }
