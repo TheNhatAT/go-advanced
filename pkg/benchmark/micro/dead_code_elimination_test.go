@@ -2,6 +2,7 @@ package micro
 
 import (
 	"math"
+	"runtime"
 	"testing"
 )
 
@@ -91,3 +92,27 @@ BenchmarkPopcnt-4       1000000000               0.8516 ns/op          0 B/op   
 0x0078 00120 (.../dead_code_elimination_test.go:26)        SUB     $8, RSP, R29
 0x007c 00124 (.../dead_code_elimination_test.go:26)        RET     (R30)
 */
+
+var Sink uint64
+var Input uint64 = math.MaxUint64
+
+// BenchmarkPopcnt_Sink is one example on how we can countermeasure the problem visible in BenchmarkPopcnt_Wrong.
+// Read more in "Efficient Go"; Example 8-18.
+func BenchmarkPopcnt_Sink(b *testing.B) {
+	var r uint64
+
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		r = popcnt(Input)
+	}
+	Sink = r
+}
+
+func BenchmarkPopcnt_KeepAlive(b *testing.B) {
+	var r uint64
+
+	for i := 0; i < b.N; i++ {
+		r = popcnt(Input)
+	}
+	runtime.KeepAlive(r)
+}
