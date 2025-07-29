@@ -7,6 +7,8 @@ import (
 	"context"
 	"encoding/json"
 	"flag"
+	"fmt"
+	"go-advanced/pkg/benchmark/macro/httpmidleware"
 	stdlog "log"
 	"net/http"
 	"net/http/pprof"
@@ -15,7 +17,6 @@ import (
 	"syscall"
 
 	"github.com/efficientgo/core/errors"
-	"github.com/efficientgo/examples/pkg/metrics/httpmidleware"
 	"github.com/felixge/fgprof"
 	"github.com/go-kit/log"
 	"github.com/go-kit/log/level"
@@ -139,6 +140,8 @@ func runMain(ctx context.Context, args []string) (err error) {
 		},
 	)))
 	m.HandleFunc("/label_object", metricMiddleware.WrapHandler("/label_object", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		fmt.Printf("Handling request for %s\n", r.URL.Path)
+
 		ctx := r.Context()
 		w.Header().Add("Content-Type", "application/json; charset=utf-8")
 
