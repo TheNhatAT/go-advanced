@@ -3,7 +3,7 @@ module go-advanced
 go 1.20
 
 require (
-	github.com/TheNhatAT/e2e v0.0.0-20250729091622-a10ffd53a54f
+	github.com/TheNhatAT/e2e v0.0.0-20250729160656-f88cfba0e979
 	github.com/efficientgo/core v1.0.0-rc.2
 	github.com/efficientgo/examples v0.0.0-20240107094241-3b473a0075bd
 	github.com/felixge/fgprof v0.9.3

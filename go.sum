@@ -39,6 +39,8 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/QcloudApi/qcloud_sign_golang v0.0.0-20141224014652-e4130a326409/go.mod h1:1pk82RBxDY/JZnPQrtqHlUFfCctgdorsd9M06fMynOM=
 github.com/TheNhatAT/e2e v0.0.0-20250729091622-a10ffd53a54f h1:5o1awoO+kmReyIOyQbx0QO94F9U0blr7SATfBnxv0UU=
 github.com/TheNhatAT/e2e v0.0.0-20250729091622-a10ffd53a54f/go.mod h1:sYIUgdlWHCFX7u4wnwvCIkvPaTEGORSxPSiQ0tCyHW8=
+github.com/TheNhatAT/e2e v0.0.0-20250729160656-f88cfba0e979 h1:8FDKTjrM8Sq1a+GHKQfhaJtXyx9atCsMQ6FLw7HGXEw=
+github.com/TheNhatAT/e2e v0.0.0-20250729160656-f88cfba0e979/go.mod h1:sYIUgdlWHCFX7u4wnwvCIkvPaTEGORSxPSiQ0tCyHW8=
 github.com/aliyun/aliyun-oss-go-sdk v3.0.1+incompatible h1:so4m5rRA32Tc5GgKg/5gKUu0CRsYmVO3ThMP6T3CwLc=
 github.com/aliyun/aliyun-oss-go-sdk v3.0.1+incompatible/go.mod h1:T/Aws4fEfogEE9v+HPhhw+CntffsBHJ8nXQCwKr0/g8=
 github.com/aws/aws-sdk-go-v2 v1.24.0 h1:890+mqQ+hTpNuw0gGP6/4akolQkSToDJgHfQE7AwGuk=
