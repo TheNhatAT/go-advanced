@@ -19,12 +19,15 @@ type TestApp struct {
 
 func (a *TestApp) Close() {
 	for _, cl := range a.files {
+		// (2) ensured file will be closed and removed from the profile.
 		_ = cl.Close() // TODO: Check error.
 	}
 	a.files = a.files[:0]
 }
 
 func (a *TestApp) open(name string) {
+	// (1) open file with fd.Open func with start recording
+	// it in profile as a side effect.
 	f, _ := fd.Open(name) // TODO: Check error.
 	a.files = append(a.files, f)
 }
@@ -57,6 +60,7 @@ func main() {
 
 	// No matter how many files we opened in the past...
 	for i := 0; i < 10; i++ {
+		// (3) first open ten files closing them, repeated 10 times.
 		a.OpenTenFiles("/dev/null")
 		a.Close()
 	}
@@ -69,7 +73,13 @@ func main() {
 	a.OpenTenFiles("/dev/null")
 	a.Open100FilesConcurrently("/dev/null")
 
+	// (4) take a snapshot of the situation in form of fd.inuse profile.
 	if err := fd.Write("fd.pprof"); err != nil {
 		log.Fatal(err)
 	}
 }
+
+/**
+- using `go tool pprof -lines -http :8080 fd.pprof`  or  `http://localhost:8080/ui/?g=lines` for visualizing the profile in lines granularity.
+- using `go tool pprof -http :8080 fd.pprof` or  `http://localhost:8080/ui/?g=functions` for visualizing the profile in functions granularity.
+*/
