@@ -4,6 +4,8 @@
 package fd
 
 import (
+	"errors"
+	"log"
 	"net/http"
 	"net/http/pprof"
 
@@ -21,7 +23,10 @@ func ExampleHTTP() {
 
 	srv := http.Server{Handler: m}
 
-	// Start server...
-
-	_ = srv
+	// Start server with port 8080.
+	srv.Addr = ":8080"
+	if err := srv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
+		// Handle error, e.g., log it.
+		log.Fatalf("Failed to start server: %v", err)
+	}
 }

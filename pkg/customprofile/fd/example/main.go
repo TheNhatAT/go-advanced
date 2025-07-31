@@ -54,6 +54,12 @@ func (a *TestApp) Open100FilesConcurrently(name string) {
 	wg.Wait()
 }
 
+func (a *TestApp) Open100FilesSequentially(name string) {
+	for i := 0; i < 10; i++ {
+		a.OpenTenFiles(name)
+	}
+}
+
 func main() {
 	a := &TestApp{}
 	defer a.Close()
@@ -72,9 +78,10 @@ func main() {
 	a.OpenSingleFile("/dev/null")
 	a.OpenTenFiles("/dev/null")
 	a.Open100FilesConcurrently("/dev/null")
+	a.Open100FilesSequentially("/dev/null")
 
 	// (4) take a snapshot of the situation in form of fd.inuse profile.
-	if err := fd.Write("fd.pprof"); err != nil {
+	if err := fd.Write("fd_with_sequential.pprof"); err != nil {
 		log.Fatal(err)
 	}
 }
