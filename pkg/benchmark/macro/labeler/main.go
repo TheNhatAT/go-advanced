@@ -178,6 +178,7 @@ func runMain(ctx context.Context, args []string) (err error) {
 		}
 	})))
 
+	//TODO:NOTE use `go tool pprof -http :8081 http://localhost:<port>/debug/pprof/<sample_type>` for rendering pprof profiles.
 	m.HandleFunc("/debug/pprof/", pprof.Index)
 	m.HandleFunc("/debug/pprof/profile", pprof.Profile)
 	m.HandleFunc("/debug/fgprof/profile", fgprof.Handler().ServeHTTP)

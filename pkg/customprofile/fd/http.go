@@ -45,4 +45,6 @@ func ExampleHTTP() {
 (2) using `http://<address>/debug/pprof/heap` for download profile
 (3) using `go tool pprof -http :8080 http://<address>/debug/pprof/heap` for directly visualizing without download profile
 (4) using another server to collect those profiles to a dedicated database periodically
+
+(1) using `http://localhost:8081/ui/top?si=alloc_space&g=lines` for showing in lines granularity
 */
