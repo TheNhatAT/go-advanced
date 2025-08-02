@@ -7,6 +7,8 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+	"os"
+	"strconv"
 	"testing"
 
 	"github.com/TheNhatAT/e2e"
@@ -81,38 +83,37 @@ func TestLabeler_LabelObject(t *testing.T) {
 	testutil.Ok(t, uploadTestInput(minio, "object1.txt", 2e6))
 
 	// Start continuous profiling (not present in examples 8-19, 8-20).
-	/**
-		parca := e2e.NewInstrumentedRunnable(e, "parca").
-			WithPorts(map[string]int{"http": 7070}, "http").
-			Init(e2e.StartOptions{
-				Image: "ghcr.io/parca-dev/parca:main-4e20a666",
-				Command: e2e.NewCommand("/bin/sh", "-c",
-					`cat << EOF > /shared/data/config.yml && \
-	    /parca --config-path=/shared/data/config.yml
-	object_storage:
-	  bucket:
-	    type: "FILESYSTEM"
-	    config:
-	      directory: "./data"
-	scrape_configs:
-	- job_name: "labeler"
-	  scrape_interval: "15s"
-	  static_configs:
-	    - targets: [ '`+labeler.InternalEndpoint("http")+`' ]
-	  profiling_config:
-	    pprof_config:
-	      fgprof:
-	        enabled: true
-	        path: /debug/fgprof/profile
-	        delta: true
-	EOF
+	parca := e2emonitoring.AsInstrumented(e.Runnable("parca").
+		WithPorts(map[string]int{"http": 7070}).
+		Init(e2e.StartOptions{
+			Image: "ghcr.io/parca-dev/parca:main-4e20a666",
+			Command: e2e.NewCommand("/bin/sh", "-c",
+				`mkdir -p /tmp/shared/data && \
+  cat << EOF > /tmp/shared/data/config.yml && \
+  /parca --config-path=/tmp/shared/data/config.yml
+object_storage:
+  bucket:
+    type: "FILESYSTEM"
+    config:
+      directory: "./data"
+scrape_configs:
+- job_name: "labeler"
+  scrape_interval: "15s"
+  static_configs:
+    - targets: [ '`+labeler.InternalEndpoint("http")+`' ]
+  profiling_config:
+    pprof_config:
+      fgprof:
+        enabled: true
+        path: /debug/fgprof/profile
+        delta: true
+EOF
 	`),
-				User:      strconv.Itoa(os.Getuid()),
-				Readiness: e2e.NewTCPReadinessProbe("http"),
-			})
-		testutil.Ok(t, e2e.StartAndWaitReady(parca))
-		testutil.Ok(t, e2einteractive.OpenInBrowser("http://"+parca.Endpoint("http")))
-	*/
+			User:      strconv.Itoa(os.Getuid()),
+			Readiness: e2e.NewTCPReadinessProbe("http"),
+		}), "http")
+	testutil.Ok(t, e2e.StartAndWaitReady(parca))
+	testutil.Ok(t, e2einteractive.OpenInBrowser("http://"+parca.Endpoint("http")))
 
 	// Load test labeler from 1 clients with k6 and export result to Prometheus.
 	k6 := e.Runnable("k6").Init(e2e.StartOptions{
