@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"github.com/efficientgo/core/errcapture"
 	"github.com/efficientgo/core/errors"
+	"io"
 	"os"
 	"strconv"
 	"unsafe"
@@ -164,4 +165,50 @@ func Sum5(fileName string) (ret int64, err error) {
 		ret += num
 	}
 	return ret, scanner.Err()
+}
+
+// Sum6 is like Sum4, but trying to use max 10 KB of mem without scanner and bulk read.
+// Assuming no integer is larger than 8 000 digits.
+// Read more in "Efficient Go"; Example 10-8.
+func Sum6(fileName string) (ret int64, err error) {
+	f, err := os.Open(fileName)
+	if err != nil {
+		return 0, err
+	}
+	defer errcapture.Do(&err, f.Close, "close file")
+
+	buf := make([]byte, 8*1024)
+	return Sum6Reader(f, buf)
+}
+
+func Sum6Reader(r io.Reader, buf []byte) (ret int64, err error) { // Just inlining this function saves 7% on latency
+	var offset, n int
+	for err != io.EOF {
+		n, err = r.Read(buf[offset:])
+		if err != nil && err != io.EOF {
+			return 0, err
+		}
+		n += offset
+
+		var last int
+		//for i := 0; i < n; i++ { // Funny enough this is 5% slower!
+		for i := range buf[:n] {
+			if buf[i] != '\n' {
+				continue
+			}
+			num, err := ParseInt(buf[last:i])
+			if err != nil {
+				return 0, err
+			}
+
+			ret += num
+			last = i + 1
+		}
+
+		offset = n - last
+		if offset > 0 {
+			_ = copy(buf, buf[last:n])
+		}
+	}
+	return ret, nil
 }

@@ -113,6 +113,26 @@ func BenchmarkSum5(b *testing.B) {
 	}
 }
 
+/**
+export ver=v6 && \
+	go test -run '^$' -bench '^BenchmarkSum6' -benchtime 10s -count 6 \
+		-cpu 4 \
+		-benchmem \
+		-memprofile=./benchmarkresult/${ver}.mem.pprof -cpuprofile=./benchmarkresult/${ver}.cpu.pprof \
+	| tee ./benchmarkresult/${ver}.txt
+*/
+// after benchmark, for running benchstat, go into v6.txt and rename the BenchmarkSum6 -> BenchmarkSum
+/**
+using benchstat for visualization:
+$ gvm use go1.24.1
+$ benchstat ./pkg/benchmark/micro/benchmarkresult/v1.txt ./pkg/benchmark/micro/benchmarkresult/v6.txt
+*/
+func BenchmarkSum6(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_, _ = Sum6("testdata/test.2000000.txt")
+	}
+}
+
 // For correctness of the benchmark, we should use testutil.TB interface.
 // unittest
 func TestBenchmarkSum_unittest(t *testing.T) {
@@ -197,5 +217,41 @@ func BenchmarkSum_fgprof(b *testing.B) {
 
 	closeFn := fgprof.Start(f, fgprof.FormatPprof)
 	BenchmarkSum(b)
+	testutil.Ok(b, closeFn())
+}
+
+// BenchmarkSum5_fgprof recommended run options:
+//
+/**
+$ export ver=v5fg && go test -run '^$' -bench '^BenchmarkSum5_fgprof' \
+  -benchtime 10s -count 6 -cpu 4 | tee ./benchmarkresult/${ver}.txt
+*/
+// Read more in "Efficient Go"; Example 10-2.
+func BenchmarkSum5_fgprof(b *testing.B) {
+	f, err := os.Create("./benchmarkresult/v5fg_fgprof.pprof")
+	testutil.Ok(b, err)
+
+	defer func() { testutil.Ok(b, f.Close()) }()
+
+	closeFn := fgprof.Start(f, fgprof.FormatPprof)
+	BenchmarkSum5(b)
+	testutil.Ok(b, closeFn())
+}
+
+// BenchmarkSum6_fgprof recommended run options:
+//
+/**
+$ export ver=v6fg && go test -run '^$' -bench '^BenchmarkSum6_fgprof' \
+  -benchtime 10s -count 6 -cpu 4 | tee ./benchmarkresult/${ver}.txt
+*/
+// Read more in "Efficient Go"; Example 10-2.
+func BenchmarkSum6_fgprof(b *testing.B) {
+	f, err := os.Create("./benchmarkresult/v6fg_fgprof.pprof")
+	testutil.Ok(b, err)
+
+	defer func() { testutil.Ok(b, f.Close()) }()
+
+	closeFn := fgprof.Start(f, fgprof.FormatPprof)
+	BenchmarkSum6(b)
 	testutil.Ok(b, closeFn())
 }
