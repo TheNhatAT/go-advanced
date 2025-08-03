@@ -3,6 +3,8 @@ package micro
 import (
 	"fmt"
 	"github.com/efficientgo/core/testutil"
+	"github.com/felixge/fgprof"
+	"os"
 	"testing"
 )
 
@@ -48,6 +50,66 @@ $ benchstat ./pkg/benchmark/micro/benchmarkresult/v1.txt ./pkg/benchmark/micro/b
 func BenchmarkSum2(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		_, _ = Sum2("testdata/test.2000000.txt")
+	}
+}
+
+/**
+export ver=v3 && \
+	go test -run '^$' -bench '^BenchmarkSum3' -benchtime 10s -count 6 \
+		-cpu 4 \
+		-benchmem \
+		-memprofile=./benchmarkresult/${ver}.mem.pprof -cpuprofile=./benchmarkresult/${ver}.cpu.pprof \
+	| tee ./benchmarkresult/${ver}.txt
+*/
+// after benchmark, for running benchstat, go into v3.txt and rename the BenchmarkSum3 -> BenchmarkSum
+/**
+using benchstat for visualization:
+$ gvm use go1.24.1
+$ benchstat ./pkg/benchmark/micro/benchmarkresult/v1.txt ./pkg/benchmark/micro/benchmarkresult/v3.txt
+*/
+func BenchmarkSum3(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_, _ = Sum3("testdata/test.2000000.txt")
+	}
+}
+
+/**
+export ver=v4 && \
+	go test -run '^$' -bench '^BenchmarkSum4' -benchtime 10s -count 6 \
+		-cpu 4 \
+		-benchmem \
+		-memprofile=./benchmarkresult/${ver}.mem.pprof -cpuprofile=./benchmarkresult/${ver}.cpu.pprof \
+	| tee ./benchmarkresult/${ver}.txt
+*/
+// after benchmark, for running benchstat, go into v4.txt and rename the BenchmarkSum4 -> BenchmarkSum
+/**
+using benchstat for visualization:
+$ gvm use go1.24.1
+$ benchstat ./pkg/benchmark/micro/benchmarkresult/v1.txt ./pkg/benchmark/micro/benchmarkresult/v4.txt
+*/
+func BenchmarkSum4(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_, _ = Sum4("testdata/test.2000000.txt")
+	}
+}
+
+/**
+export ver=v5 && \
+	go test -run '^$' -bench '^BenchmarkSum5' -benchtime 10s -count 6 \
+		-cpu 4 \
+		-benchmem \
+		-memprofile=./benchmarkresult/${ver}.mem.pprof -cpuprofile=./benchmarkresult/${ver}.cpu.pprof \
+	| tee ./benchmarkresult/${ver}.txt
+*/
+// after benchmark, for running benchstat, go into v5.txt and rename the BenchmarkSum5 -> BenchmarkSum
+/**
+using benchstat for visualization:
+$ gvm use go1.24.1
+$ benchstat ./pkg/benchmark/micro/benchmarkresult/v1.txt ./pkg/benchmark/micro/benchmarkresult/v5.txt
+*/
+func BenchmarkSum5(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_, _ = Sum5("testdata/test.2000000.txt")
 	}
 }
 
@@ -118,4 +180,22 @@ func BenchmarkSum_table_test(b *testing.B) {
 			}
 		})
 	}
+}
+
+// BenchmarkSum_fgprof recommended run options:
+//
+/**
+$ export ver=v1fg && go test -run '^$' -bench '^BenchmarkSum_fgprof' \
+  -benchtime 10s -count 6 -cpu 4 | tee ./benchmarkresult/${ver}.txt
+*/
+// Read more in "Efficient Go"; Example 10-2.
+func BenchmarkSum_fgprof(b *testing.B) {
+	f, err := os.Create("./benchmarkresult/v1fg_fgprof.pprof")
+	testutil.Ok(b, err)
+
+	defer func() { testutil.Ok(b, f.Close()) }()
+
+	closeFn := fgprof.Start(f, fgprof.FormatPprof)
+	BenchmarkSum(b)
+	testutil.Ok(b, closeFn())
 }

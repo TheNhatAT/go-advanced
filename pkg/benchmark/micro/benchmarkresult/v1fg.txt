@@ -1,0 +1,6 @@
+goos: darwin
+goarch: arm64
+pkg: go-advanced/pkg/benchmark/micro
+BenchmarkSum_fgprof 	     812	  87415720 ns/op
+PASS
+ok  	go-advanced/pkg/benchmark/micro	80.296s

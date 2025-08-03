@@ -1,17 +1,20 @@
 package micro
 
 import (
+	"bufio"
 	"bytes"
-	"fmt"
+	"github.com/efficientgo/core/errcapture"
+	"github.com/efficientgo/core/errors"
 	"os"
 	"strconv"
+	"unsafe"
 )
 
 // Sum is a naive implementation and algorithm for summing integers from file.
 // Read more in "Efficient Go"; Example 4-1.
 // using "ps -p <PID> -o pid,rss,vsz to check RSS and VSZ memory usage.
 func Sum(fileName string) (ret int64, _ error) {
-	fmt.Println("PID", os.Getpid())
+	//fmt.Println("PID", os.Getpid())
 	b, err := os.ReadFile(fileName) // RSS ~= 3MB
 	if err != nil {
 		return 0, err
@@ -38,7 +41,7 @@ func Sum(fileName string) (ret int64, _ error) {
 // 30% less latency and 5x less memory than Sum.
 // Read more in "Efficient Go"; Example 10-3.
 func Sum2(fileName string) (ret int64, _ error) {
-	fmt.Println("PID", os.Getpid())
+	//fmt.Println("PID", os.Getpid())
 	b, err := os.ReadFile(fileName) // RSS ~= 3MB
 	if err != nil {
 		return 0, err
@@ -58,4 +61,107 @@ func Sum2(fileName string) (ret int64, _ error) {
 		last = i + 1
 	}
 	return ret, nil // RSS ~= 11MB
+}
+
+func zeroCopyToString(b []byte) string {
+	return *((*string)(unsafe.Pointer(&b)))
+}
+
+// Sum3 is a sum with optimized the second latency + CPU bottleneck: string conversion.
+// On CPU profile we see byte to string conversion not only allocate memory, but also takes precious time.
+// Let's perform zeroCopy conversion.
+// 2x less latency memory than Sum2.
+// Read more in "Efficient Go"; Example 10-4.
+func Sum3(fileName string) (ret int64, _ error) {
+	b, err := os.ReadFile(fileName)
+	if err != nil {
+		return 0, err
+	}
+
+	var last int
+	for i := 0; i < len(b); i++ {
+		if b[i] != '\n' {
+			continue
+		}
+		num, err := strconv.ParseInt(zeroCopyToString(b[last:i]), 10, 64)
+		if err != nil {
+			return 0, err
+		}
+
+		ret += num
+		last = i + 1
+	}
+	return ret, nil
+}
+
+// ParseInt is 3-4x times faster than strconv.ParseInt or Atoi.
+func ParseInt(input []byte) (n int64, _ error) {
+	factor := int64(1)
+	k := 0
+
+	// TODO(bwplotka): Optimize if only positive integers are accepted (only 2.6% overhead in my tests though).
+	if input[0] == '-' {
+		factor *= -1
+		k++
+	}
+
+	for i := len(input) - 1; i >= k; i-- {
+		if input[i] < '0' || input[i] > '9' {
+			return 0, errors.Newf("not a valid integer: %v", input)
+		}
+
+		n += factor * int64(input[i]-'0')
+		factor *= 10
+	}
+	return n, nil
+}
+
+// Sum4 is a sum with optimized the second latency + CPU bottleneck: ParseInt and string conversion.
+// On CPU profile we see that ParseInt does a lot of checks that we might not need. We write our own parsing
+// straight from byte to avoid conversion CPU time.
+// 2x less latency, same mem as Sum3.
+// Read more in "Efficient Go"; Example 10-5.
+func Sum4(fileName string) (ret int64, err error) {
+	b, err := os.ReadFile(fileName)
+	if err != nil {
+		return 0, err
+	}
+
+	var last int
+	for i := 0; i < len(b); i++ {
+		if b[i] != '\n' {
+			continue
+		}
+		num, err := ParseInt(b[last:i])
+		if err != nil {
+			return 0, err
+		}
+
+		ret += num
+		last = i + 1
+	}
+	return ret, nil
+}
+
+// Sum5 is like Sum4, but noticing that it takes time to even allocate 21 MB on heap (and read file to it).
+// Let's try to use scanner instead.
+// Slower than Sum4 and Sum6 because scanner is not optimized for this...? Scanner takes 73% of CPU time.
+// Read more in "Efficient Go"; Example 10-7.
+func Sum5(fileName string) (ret int64, err error) {
+	f, err := os.Open(fileName)
+	if err != nil {
+		return 0, err
+	}
+	defer errcapture.Do(&err, f.Close, "close file")
+
+	scanner := bufio.NewScanner(f)
+	for scanner.Scan() {
+		num, err := ParseInt(scanner.Bytes())
+		if err != nil {
+			return 0, err
+		}
+
+		ret += num
+	}
+	return ret, scanner.Err()
 }
