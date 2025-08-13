@@ -1,0 +1,11 @@
+goos: darwin
+goarch: arm64
+pkg: go-advanced/pkg/optimizationpatterns
+BenchmarkGcLargeHeapValue-4   	     636	  18413418 ns/op	800006159 B/op	       1 allocs/op
+BenchmarkGcLargeHeapValue-4   	     721	  16251819 ns/op	800006188 B/op	       1 allocs/op
+BenchmarkGcLargeHeapValue-4   	     786	  15706797 ns/op	800006181 B/op	       1 allocs/op
+BenchmarkGcLargeHeapValue-4   	     763	  15794033 ns/op	800006171 B/op	       1 allocs/op
+BenchmarkGcLargeHeapValue-4   	     717	  17343894 ns/op	800006171 B/op	       1 allocs/op
+BenchmarkGcLargeHeapValue-4   	     752	  16505817 ns/op	800006163 B/op	       1 allocs/op
+PASS
+ok  	go-advanced/pkg/optimizationpatterns	83.017s
