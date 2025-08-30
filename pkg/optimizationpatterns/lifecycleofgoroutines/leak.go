@@ -44,7 +44,9 @@ func Handle_VeryWrong(w http.ResponseWriter, r *http.Request) {
 // Read more in "Efficient Go"; Example 11-5.
 
 func Handle_Wrong(w http.ResponseWriter, r *http.Request) {
-	respCh := make(chan int, 1)
+	respCh := make(chan int, 1) // NOTE: a channel with a buffer for one message -> allow computation goroutine
+	// to push one message to the channel without waiting for someone to read it
+	// => if we cancel and wait some time -> the "left behind" goroutine will eventually finish
 
 	go func() {
 		defer close(respCh)
@@ -55,6 +57,9 @@ func Handle_Wrong(w http.ResponseWriter, r *http.Request) {
 
 	select {
 	case <-r.Context().Done():
+		// NOTE: but the goroutine continues running ComplexComputation() even after the request is cancelled
+		// => waiting unaccounted resource usage & hard to trace because the memory allocation is allocated after
+		// the request is done.
 		return
 	case resp := <-respCh:
 		_, _ = w.Write([]byte(strconv.Itoa(resp)))
@@ -69,6 +74,8 @@ func ComplexComputationWithCtx(ctx context.Context) (ret int) {
 		ret = 4
 	}
 
+	// NOTE: even if we cancel the context, we still do some cleanup.
+	// => still consuming resources (CPU time, memory, etc.) for cleanup work that may not be necessary.
 	time.Sleep(1 * time.Second) // Cleanup.
 	return ret
 }
@@ -78,7 +85,8 @@ func Handle_AlsoWrong(w http.ResponseWriter, r *http.Request) {
 
 	go func() {
 		defer close(respCh)
-		respCh <- ComplexComputationWithCtx(r.Context())
+		respCh <- ComplexComputationWithCtx(r.Context()) // NOTE: accept context as a parameter
+		// => cancels computation when no longer needed
 	}()
 
 	// Some other work...
@@ -105,6 +113,8 @@ func Handle_Better(w http.ResponseWriter, r *http.Request) {
 
 	// Some other work...
 
+	// NOTE: always reading from the channel -> wait for the goroutine stop
+	// => respond to cancel as quickly as possible
 	resp := <-respCh
 	if r.Context().Err() != nil {
 		return
